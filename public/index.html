@@ -3,68 +3,1036 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NWB Financial</title>
+<title>NWB Financial — Fictional</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:#f4f7fb;color:#172033}
-button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
-.top{background:#102a43;color:#fff;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
-.brand{font-size:22px;font-weight:800}.badge{font-size:11px;background:#1f7a8c;padding:5px 8px;border-radius:20px;margin-left:6px}
-.wrap{max-width:1150px;margin:auto;padding:24px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 5px 20px #17203312}.balance{font-size:28px;font-weight:800;margin-top:8px}
-.btn{border:0;border-radius:10px;padding:11px 15px;background:#1261a0;color:white;font-weight:700}.btn.alt{background:#e8f1f8;color:#1261a0}.btn.danger{background:#b42318}
-input,select{width:100%;padding:12px;border:1px solid #ccd6e0;border-radius:9px;margin:6px 0 12px}
-.form{max-width:430px;margin:50px auto}.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-.tabs button{border:0;padding:10px 13px;border-radius:9px;background:#e8eef5}.tabs button.active{background:#1261a0;color:#fff}
-table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px;border-bottom:1px solid #edf0f3;font-size:13px}
-.notice{padding:12px;border-radius:10px;margin:10px 0;background:#eef7ee}.error{background:#fff0f0;color:#a51d2d}
-.actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:18px 0}
-h1,h2,h3{margin-top:0}.muted{color:#65748b}.right{display:flex;gap:8px;align-items:center}
-@media(max-width:600px){.wrap{padding:14px}.top{padding:14px}.balance{font-size:24px}}
+*{box-sizing:border-box}
+:root{
+  --navy:#102a43;
+  --blue:#1261a0;
+  --blue2:#1976d2;
+  --cyan:#1f8a9e;
+  --bg:#f4f7fb;
+  --card:#fff;
+  --text:#172033;
+  --muted:#68778d;
+  --border:#e4eaf0;
+  --green:#16803c;
+  --red:#b42318;
+  --shadow:0 8px 30px rgba(16,42,67,.08)
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+
+.top{
+  background:linear-gradient(135deg,#102a43,#1261a0);
+  color:white;
+  padding:16px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 3px 15px rgba(0,0,0,.12)
+}
+.brand{
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:.2px
+}
+.badge{
+  font-size:10px;
+  background:#1f8a9e;
+  padding:5px 8px;
+  border-radius:20px;
+  margin-left:6px;
+  vertical-align:middle
+}
+.topRight{
+  font-size:13px;
+  opacity:.9
+}
+
+.wrap{
+  max-width:1180px;
+  margin:auto;
+  padding:26px 20px
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow)
+}
+
+.form{
+  max-width:450px;
+  margin:55px auto
+}
+
+h1,h2,h3{margin-top:0}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin:20px 0;
+  flex-wrap:wrap
+}
+.tabs button{
+  border:0;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#eaf0f6;
+  color:#31516e;
+  font-weight:700
+}
+.tabs button.active{
+  background:var(--blue);
+  color:white
+}
+
+label{
+  display:block;
+  font-weight:700;
+  font-size:13px;
+  margin-top:10px
+}
+input,select{
+  width:100%;
+  padding:12px 13px;
+  border:1px solid #ccd6e0;
+  border-radius:10px;
+  margin:6px 0 12px;
+  background:white;
+  outline:none
+}
+input:focus,select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(18,97,160,.10)
+}
+
+.btn{
+  border:0;
+  border-radius:10px;
+  padding:11px 16px;
+  background:var(--blue);
+  color:white;
+  font-weight:750;
+  transition:.15s
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn.alt{
+  background:#e8f1f8;
+  color:var(--blue)
+}
+.btn.danger{background:var(--red)}
+.btn.green{background:var(--green)}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:16px
+}
+
+.balanceCard{
+  color:white;
+  border-radius:18px;
+  padding:21px;
+  background:linear-gradient(135deg,#102a43,#1261a0);
+  box-shadow:var(--shadow)
+}
+.balanceCard:nth-child(2){
+  background:linear-gradient(135deg,#1d536b,#1f8a9e)
+}
+.balanceCard:nth-child(3){
+  background:linear-gradient(135deg,#34495e,#526b84)
+}
+.currency{
+  font-size:13px;
+  opacity:.85
+}
+.balance{
+  font-size:28px;
+  font-weight:850;
+  margin:9px 0
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:11px;
+  margin-top:15px
+}
+.action{
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:white;
+  text-align:left;
+  font-weight:750;
+  color:var(--text)
+}
+.action:hover{
+  border-color:#b9d1e5;
+  background:#f8fbfe
+}
+.action span{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:4px
+}
+
+.notice{
+  padding:12px 14px;
+  border-radius:10px;
+  margin:12px 0;
+  background:#eef7ee;
+  color:#176b35
+}
+.error{
+  background:#fff0f0;
+  color:#a51d2d
+}
+.info{
+  background:#eef5ff;
+  color:#24527b
+}
+
+.headerRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:18px
+}
+
+.profile{
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+.avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#dcecf8;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:850
+}
+
+.quick{
+  margin-top:18px
+}
+
+table{
+  width:100%;
+  border-collapse:collapse
+}
+th,td{
+  text-align:left;
+  padding:12px;
+  border-bottom:1px solid #edf0f3;
+  font-size:13px
+}
+th{
+  color:#526176;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.3px
+}
+.status{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:750;
+  background:#eaf7ed;
+  color:#176b35
+}
+
+.footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#7a8797;
+  font-size:12px
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(10,25,40,.48);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:30
+}
+.modalBox{
+  background:white;
+  width:min(450px,100%);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 20px 70px rgba(0,0,0,.25)
+}
+
+@media(max-width:650px){
+  .wrap{padding:15px}
+  .top{padding:14px 15px}
+  .topRight{display:none}
+  .form{margin:25px auto}
+  .headerRow{align-items:flex-start}
+  .balance{font-size:25px}
+  table{min-width:650px}
+}
 </style>
 </head>
+
 <body>
-<div class="top"><div class="brand">NWB Financial <span class="badge">FICTIONAL</span></div><div id="topRight"></div></div>
+
+<header class="top">
+  <div class="brand">
+    NWB Financial <span class="badge">FICTIONAL</span>
+  </div>
+  <div class="topRight">Secure fictional financial workspace</div>
+</header>
+
 <main class="wrap">
 
+<!-- LOGIN -->
 <section id="auth">
-<div class="card form">
-<h1>Welcome</h1><p class="muted">Secure fictional financial workspace.</p>
-<div class="tabs"><button id="loginTab" class="active" onclick="showAuth('login')">Sign in</button><button id="registerTab" onclick="showAuth('register')">Create account</button></div>
-<div id="msg"></div>
-<div id="loginBox"><label>Email</label><input id="le" type="email"><label>Password</label><input id="lp" type="password"><button class="btn" onclick="login()">Sign in</button></div>
-<div id="registerBox" class="hidden"><label>Full name</label><input id="rn"><label>Email</label><input id="re" type="email"><label>Password</label><input id="rp" type="password" placeholder="At least 8 characters"><button class="btn" onclick="register()">Create account</button></div>
-</div>
+  <div class="card form">
+
+    <h1 id="authTitle">Welcome back</h1>
+    <p class="muted">Sign in to your fictional NWB Financial workspace.</p>
+
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="showAuth('login')">Sign in</button>
+      <button id="registerTab" onclick="showAuth('register')">Create account</button>
+    </div>
+
+    <div id="msg"></div>
+
+    <div id="loginBox">
+      <label>Email</label>
+      <input id="le" type="email" placeholder="you@example.com">
+
+      <label>Password</label>
+      <input id="lp" type="password" placeholder="Password">
+
+      <button class="btn" style="width:100%" onclick="login()">
+        Sign in
+      </button>
+
+      <p class="small muted" style="margin-top:15px">
+        This is a fictional demonstration interface.
+      </p>
+    </div>
+
+    <div id="registerBox" class="hidden">
+
+      <label>Full name</label>
+      <input id="rn" placeholder="Your full name">
+
+      <label>Email</label>
+      <input id="re" type="email" placeholder="you@example.com">
+
+      <label>Password</label>
+      <input id="rp" type="password" placeholder="At least 8 characters">
+
+      <button class="btn" style="width:100%" onclick="register()">
+        Create account
+      </button>
+    </div>
+
+  </div>
 </section>
 
+
+<!-- APP -->
 <section id="app" class="hidden">
-<div class="right" style="justify-content:space-between;margin-bottom:16px"><div><h1 id="welcome"></h1><span class="muted">Multi-currency account</span></div><button class="btn danger" onclick="logout()">Sign out</button></div>
-<div class="tabs"><button class="active" onclick="tab('home',this)">Dashboard</button><button onclick="tab('transfer',this)">Transfer</button><button onclick="tab('exchange',this)">Exchange</button><button onclick="tab('withdraw',this)">Withdraw</button><button onclick="tab('history',this)">Transactions</button><button id="adminTab" class="hidden" onclick="tab('admin',this)">Admin</button></div>
-<div id="content"></div>
+
+  <div class="headerRow">
+    <div class="profile">
+      <div class="avatar" id="avatar">N</div>
+      <div>
+        <h1 id="welcome" style="margin-bottom:2px">Welcome</h1>
+        <div class="muted small">Multi-currency fictional account</div>
+      </div>
+    </div>
+
+    <button class="btn danger" onclick="logout()">Sign out</button>
+  </div>
+
+  <div class="tabs">
+    <button class="active" onclick="tab('home',this)">Dashboard</button>
+    <button onclick="tab('transfer',this)">Transfer</button>
+    <button onclick="tab('exchange',this)">Exchange</button>
+    <button onclick="tab('withdraw',this)">Withdraw</button>
+    <button onclick="tab('history',this)">Transactions</button>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="footer">
+    NWB Financial is a fictional financial interface created for demonstration purposes.
+    It is not a real bank and does not process real money.
+  </div>
+
 </section>
+
 </main>
+
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
+  <div class="modalBox">
+    <h2 id="modalTitle">Notice</h2>
+    <p id="modalText" class="muted"></p>
+    <button class="btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+
 <script>
-const $=id=>document.getElementById(id);let state=null;
-function msg(t,e=false){$("msg").innerHTML=`<div class="notice ${e?'error':''}">${t}</div>`}
-function showAuth(x){$("loginBox").classList.toggle("hidden",x!=="login");$("registerBox").classList.toggle("hidden",x!=="register");$("loginTab").classList.toggle("active",x==="login");$("registerTab").classList.toggle("active",x==="register");$("msg").innerHTML=""}
-async function api(url,opt={}){const r=await fetch(url,{headers:{"Content-Type":"application/json"},...opt});const d=await r.json();if(!r.ok)throw Error(d.error||"Request failed");return d}
-async function login(){try{const d=await api("/api/login",{method:"POST",body:JSON.stringify({email:$("le").value,password:$("lp").value})});await load();}catch(e){msg(e.message,true)}}
-async function register(){try{await api("/api/register",{method:"POST",body:JSON.stringify({name:$("rn").value,email:$("re").value,password:$("rp").value})});await load();}catch(e){msg(e.message,true)}}
-async function load(){try{state=await api("/api/me");$("auth").classList.add("hidden");$("app").classList.remove("hidden");$("welcome").textContent="Hello, "+state.user.name;$("adminTab").classList.toggle("hidden",state.user.role!=="admin");tab("home",document.querySelector(".tabs button"));}catch(e){}}
-async function logout(){await api("/api/logout",{method:"POST"});location.reload()}
-function money(v,c){return new Intl.NumberFormat(undefined,{style:"currency",currency:c,maximumFractionDigits:2}).format(v)}
-function tab(name,el){document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));if(el)el.classList.add("active");({home,transfer,exchange,withdraw,history,admin}[name])()}
-function home(){let html="<div class='grid'>";state.wallets.forEach(w=>html+=`<div class='card'><div class='muted'>${w.currency}</div><div class='balance'>${money(w.balance,w.currency)}</div></div>`);html+="</div><div class='card' style='margin-top:16px'><h2>Quick actions</h2><div class='actions'><button class='btn' onclick=\"tab('transfer')\">Transfer</button><button class='btn alt' onclick=\"tab('exchange')\">Exchange currency</button><button class='btn alt' onclick=\"tab('withdraw')\">Withdraw</button></div></div>" ;$("content").innerHTML=html}
-function currencySelect(id){return `<select id='${id}'>${state.wallets.map(w=>`<option>${w.currency}</option>`).join("")}</select>`}
-function transfer(){ $("content").innerHTML=`<div class='card'><h2>Internal transfer</h2><p class='muted'>Moves funds from your selected fictional wallet and records a transaction.</p><label>Currency</label>${currencySelect("tc")}<label>Amount</label><input id="ta" type="number" step="0.01"><label>Description</label><input id="td" placeholder="Transfer description"><button class="btn" onclick="doTransfer()">Send transfer</button><div id="out"></div></div>`}
-async function doTransfer(){try{const d=await api("/api/transfer",{method:"POST",body:JSON.stringify({currency:$("tc").value,amount:$("ta").value,description:$("td").value})});$("out").innerHTML=`<div class='notice'>Transfer completed. Reference: ${d.reference}</div>`;await load()}catch(e){$("out").innerHTML=`<div class='notice error'>${e.message}</div>`}}
-function exchange(){ $("content").innerHTML=`<div class='card'><h2>Currency exchange</h2><label>From</label>${currencySelect("ef")}<label>To</label>${currencySelect("et")}<label>Amount</label><input id="ea" type="number" step="0.01"><button class="btn" onclick="doExchange()">Exchange</button><div id="eo"></div></div>`}
-async function doExchange(){try{const d=await api("/api/exchange",{method:"POST",body:JSON.stringify({from:$("ef").value,to:$("et").value,amount:$("ea").value})});$("eo").innerHTML=`<div class='notice'>Exchange completed. Received ${money(d.received,$("et").value)}.</div>`;await load()}catch(e){$("eo").innerHTML=`<div class='notice error'>${e.message}</div>`}}
-function withdraw(){ $("content").innerHTML=`<div class='card'><h2>Withdrawal</h2><p class='muted'>Creates a pending fictional withdrawal request.</p><label>Currency</label>${currencySelect("wc")}<label>Amount</label><input id="wa" type="number" step="0.01"><label>Note</label><input id="wd"><button class="btn" onclick="doWithdraw()">Request withdrawal</button><div id="wo"></div></div>`}
-async function doWithdraw(){try{const d=await api("/api/withdraw",{method:"POST",body:JSON.stringify({currency:$("wc").value,amount:$("wa").value,description:$("wd").value})});$("wo").innerHTML=`<div class='notice'>Request recorded. Reference: ${d.reference}</div>`;await load()}catch(e){$("wo").innerHTML=`<div class='notice error'>${e.message}</div>`}}
-function history(){let rows=state.transactions.map(t=>`<tr><td>${new Date(t.created_at+"Z").toLocaleString()}</td><td>${t.type}</td><td>${t.currency}</td><td>${Number(t.amount).toFixed(2)}</td><td>${t.status}</td><td>${t.reference}</td></tr>`).join("");$("content").innerHTML=`<div class='card'><h2>Transactions</h2><div style='overflow:auto'><table><tr><th>Date</th><th>Type</th><th>Currency</th><th>Amount</th><th>Status</th><th>Reference</th></tr>${rows||"<tr><td colspan='6'>No transactions yet.</td></tr>"}</table></div></div>`}
-async function admin(){try{const users=await api("/api/admin/users");const tx=await api("/api/admin/transactions");$("content").innerHTML=`<div class='card'><h2>Administrator dashboard</h2><p class='muted'>Manage the fictional application's ledger.</p><h3>Customers</h3><div style='overflow:auto'><table><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>USD balance</th></tr>${users.map(u=>`<tr><td>${u.id}</td><td>${u.name}</td><td>${u.email}</td><td>${u.role}</td><td>${money(u.usd_balance,"USD")}</td></tr>`).join("")}</table></div><hr><h3>Credit customer ledger</h3><label>Customer ID</label><input id='cu'><label>Currency</label>${currencySelect("cc")}<label>Amount</label><input id='ca' type='number' step='0.01'><label>Description</label><input id='cd'><button class='btn' onclick='credit()'>Credit account</button><div id='co'></div><hr><h3>Recent activity</h3><div style='overflow:auto'><table><tr><th>Customer</th><th>Type</th><th>Amount</th><th>Status</th><th>Reference</th></tr>${tx.map(t=>`<tr><td>${t.name}</td><td>${t.type} ${t.currency}</td><td>${Number(t.amount).toFixed(2)}</td><td>${t.status}</td><td>${t.reference}</td></tr>`).join("")}</table></div></div>`}catch(e){$("content").innerHTML=`<div class='notice error'>${e.message}</div>`}}
-async function credit(){try{const d=await api("/api/admin/credit",{method:"POST",body:JSON.stringify({userId:$("cu").value,currency:$("cc").value,amount:$("ca").value,description:$("cd").value})});$("co").innerHTML=`<div class='notice'>Credit completed. ${d.reference}</div>`;await load();tab("admin")}catch(e){$("co").innerHTML=`<div class='notice error'>${e.message}</div>`}}
-load();
+
+const $ = id => document.getElementById(id);
+
+let user = null;
+
+let wallets = [
+  {currency:"USD",balance:12500},
+  {currency:"GBP",balance:4200},
+  {currency:"EUR",balance:3100},
+  {currency:"NGN",balance:2500000},
+  {currency:"ZAR",balance:18000},
+  {currency:"CAD",balance:1900},
+  {currency:"AUD",balance:2200}
+];
+
+let transactions = [];
+
+
+function money(value,currency){
+
+  const symbols = {
+    USD:"$",
+    GBP:"£",
+    EUR:"€",
+    NGN:"₦",
+    ZAR:"R",
+    CAD:"C$",
+    AUD:"A$"
+  };
+
+  return symbols[currency] +
+    Number(value).toLocaleString(undefined,{
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    });
+}
+
+
+function showMessage(text,error=false){
+
+  $("msg").innerHTML =
+    `<div class="notice ${error ? "error" : ""}">
+      ${text}
+    </div>`;
+
+}
+
+
+function showAuth(type){
+
+  const login = type === "login";
+
+  $("loginBox").classList.toggle("hidden",!login);
+  $("registerBox").classList.toggle("hidden",login);
+
+  $("loginTab").classList.toggle("active",login);
+  $("registerTab").classList.toggle("active",!login);
+
+  $("authTitle").textContent =
+    login ? "Welcome back" : "Create your account";
+
+  $("msg").innerHTML = "";
+}
+
+
+function login(){
+
+  const email = $("le").value.trim();
+  const password = $("lp").value;
+
+  if(!email || !password){
+
+    showMessage("Please enter your email and password.",true);
+    return;
+  }
+
+  user = {
+    name: email.split("@")[0],
+    email: email
+  };
+
+  openApp();
+}
+
+
+function register(){
+
+  const name = $("rn").value.trim();
+  const email = $("re").value.trim();
+  const password = $("rp").value;
+
+  if(!name || !email || password.length < 8){
+
+    showMessage(
+      "Please enter your name, email and a password of at least 8 characters.",
+      true
+    );
+
+    return;
+  }
+
+  user = {
+    name:name,
+    email:email
+  };
+
+  openApp();
+}
+
+
+function openApp(){
+
+  $("auth").classList.add("hidden");
+  $("app").classList.remove("hidden");
+
+  $("welcome").textContent = "Hello, " + user.name;
+
+  $("avatar").textContent =
+    user.name.charAt(0).toUpperCase();
+
+  tab("home",document.querySelector(".tabs button"));
+}
+
+
+function logout(){
+
+  user = null;
+
+  $("app").classList.add("hidden");
+  $("auth").classList.remove("hidden");
+
+  $("le").value = "";
+  $("lp").value = "";
+
+  showAuth("login");
+}
+
+
+function tab(name,el){
+
+  document
+    .querySelectorAll("#app .tabs button")
+    .forEach(x=>x.classList.remove("active"));
+
+  if(el) el.classList.add("active");
+
+  if(name === "home") home();
+  if(name === "transfer") transfer();
+  if(name === "exchange") exchange();
+  if(name === "withdraw") withdraw();
+  if(name === "history") history();
+}
+
+
+function home(){
+
+  let html = `
+    <div class="grid">
+  `;
+
+  wallets.slice(0,3).forEach(w=>{
+
+    html += `
+      <div class="balanceCard">
+        <div class="currency">${w.currency} ACCOUNT</div>
+        <div class="balance">${money(w.balance,w.currency)}</div>
+        <div style="font-size:12px;opacity:.8">
+          Available balance
+        </div>
+      </div>
+    `;
+
+  });
+
+  html += `
+    </div>
+
+    <div class="card quick">
+      <h2>Quick actions</h2>
+      <p class="muted">
+        Choose an action to manage your fictional account.
+      </p>
+
+      <div class="actions">
+
+        <button class="action" onclick="tab('transfer')">
+          ↗ Transfer
+          <span>Move funds between accounts</span>
+        </button>
+
+        <button class="action" onclick="tab('exchange')">
+          ⇄ Exchange
+          <span>Convert between currencies</span>
+        </button>
+
+        <button class="action" onclick="tab('withdraw')">
+          ↓ Withdraw
+          <span>Create a fictional withdrawal request</span>
+        </button>
+
+        <button class="action" onclick="tab('history')">
+          ☷ Transactions
+          <span>View account activity</span>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="card quick">
+      <h2>All balances</h2>
+
+      <div style="overflow:auto">
+        <table>
+          <tr>
+            <th>Currency</th>
+            <th>Available balance</th>
+          </tr>
+  `;
+
+  wallets.forEach(w=>{
+
+    html += `
+      <tr>
+        <td><strong>${w.currency}</strong></td>
+        <td>${money(w.balance,w.currency)}</td>
+      </tr>
+    `;
+
+  });
+
+  html += `
+        </table>
+      </div>
+    </div>
+  `;
+
+  $("content").innerHTML = html;
+}
+
+
+function currencyOptions(id){
+
+  return `
+    <select id="${id}">
+      ${wallets.map(w =>
+        `<option value="${w.currency}">${w.currency}</option>`
+      ).join("")}
+    </select>
+  `;
+}
+
+
+function transfer(){
+
+  $("content").innerHTML = `
+
+    <div class="card">
+
+      <h2>Transfer</h2>
+
+      <p class="muted">
+        Create a fictional internal transfer.
+      </p>
+
+      <label>Currency</label>
+      ${currencyOptions("tc")}
+
+      <label>Amount</label>
+      <input id="ta" type="number" min="0" step="0.01"
+        placeholder="0.00">
+
+      <label>Description</label>
+      <input id="td" placeholder="Transfer description">
+
+      <button class="btn" onclick="doTransfer()">
+        Send transfer
+      </button>
+
+      <div id="out"></div>
+
+    </div>
+  `;
+}
+
+
+function doTransfer(){
+
+  const currency = $("tc").value;
+  const amount = Number($("ta").value);
+  const description =
+    $("td").value.trim() || "Fictional transfer";
+
+  if(!amount || amount <= 0){
+
+    $("out").innerHTML =
+      `<div class="notice error">
+        Enter a valid amount.
+      </div>`;
+
+    return;
+  }
+
+  const wallet =
+    wallets.find(w=>w.currency === currency);
+
+  if(amount > wallet.balance){
+
+    $("out").innerHTML =
+      `<div class="notice error">
+        Insufficient fictional balance.
+      </div>`;
+
+    return;
+  }
+
+  wallet.balance -= amount;
+
+  const reference =
+    "NWB-" + Date.now().toString(36).toUpperCase();
+
+  transactions.unshift({
+    date:new Date(),
+    type:"Transfer",
+    currency,
+    amount:-amount,
+    status:"Completed",
+    reference,
+    description
+  });
+
+  $("out").innerHTML =
+    `<div class="notice">
+      Transfer completed successfully.<br>
+      Reference: <strong>${reference}</strong>
+    </div>`;
+
+  setTimeout(home,900);
+}
+
+
+function exchange(){
+
+  $("content").innerHTML = `
+
+    <div class="card">
+
+      <h2>Currency exchange</h2>
+
+      <p class="muted">
+        Exchange fictional balances using the displayed rate.
+      </p>
+
+      <label>From</label>
+      ${currencyOptions("ef")}
+
+      <label>To</label>
+      ${currencyOptions("et")}
+
+      <label>Amount</label>
+      <input id="ea" type="number" min="0" step="0.01"
+        placeholder="0.00">
+
+      <button class="btn" onclick="doExchange()">
+        Exchange currency
+      </button>
+
+      <div id="eo"></div>
+
+    </div>
+  `;
+}
+
+
+function doExchange(){
+
+  const from = $("ef").value;
+  const to = $("et").value;
+  const amount = Number($("ea").value);
+
+  if(from === to){
+
+    $("eo").innerHTML =
+      `<div class="notice error">
+        Choose two different currencies.
+      </div>`;
+
+    return;
+  }
+
+  if(!amount || amount <= 0){
+
+    $("eo").innerHTML =
+      `<div class="notice error">
+        Enter a valid amount.
+      </div>`;
+
+    return;
+  }
+
+  const source =
+    wallets.find(w=>w.currency === from);
+
+  const destination =
+    wallets.find(w=>w.currency === to);
+
+  if(amount > source.balance){
+
+    $("eo").innerHTML =
+      `<div class="notice error">
+        Insufficient fictional balance.
+      </div>`;
+
+    return;
+  }
+
+  const rates = {
+    USD:1,
+    GBP:1.28,
+    EUR:1.09,
+    NGN:.00067,
+    ZAR:.055,
+    CAD:.73,
+    AUD:.66
+  };
+
+  const received =
+    amount * rates[from] / rates[to];
+
+  source.balance -= amount;
+  destination.balance += received;
+
+  const reference =
+    "NWB-" + Date.now().toString(36).toUpperCase();
+
+  transactions.unshift({
+    date:new Date(),
+    type:"Exchange",
+    currency:from,
+    amount:-amount,
+    status:"Completed",
+    reference,
+    description:`Exchange ${from} to ${to}`
+  });
+
+  $("eo").innerHTML =
+    `<div class="notice">
+      Exchange completed.<br>
+      Received <strong>${money(received,to)}</strong>.
+    </div>`;
+
+  setTimeout(home,1200);
+}
+
+
+function withdraw(){
+
+  $("content").innerHTML = `
+
+    <div class="card">
+
+      <h2>Withdrawal</h2>
+
+      <p class="muted">
+        Create a fictional withdrawal request.
+      </p>
+
+      <label>Currency</label>
+      ${currencyOptions("wc")}
+
+      <label>Amount</label>
+      <input id="wa" type="number" min="0" step="0.01"
+        placeholder="0.00">
+
+      <label>Note</label>
+      <input id="wd" placeholder="Withdrawal note">
+
+      <button class="btn" onclick="doWithdraw()">
+        Request withdrawal
+      </button>
+
+      <div id="wo"></div>
+
+    </div>
+  `;
+}
+
+
+function doWithdraw(){
+
+  const currency = $("wc").value;
+  const amount = Number($("wa").value);
+  const note =
+    $("wd").value.trim() || "Fictional withdrawal";
+
+  if(!amount || amount <= 0){
+
+    $("wo").innerHTML =
+      `<div class="notice error">
+        Enter a valid amount.
+      </div>`;
+
+    return;
+  }
+
+  const wallet =
+    wallets.find(w=>w.currency === currency);
+
+  if(amount > wallet.balance){
+
+    $("wo").innerHTML =
+      `<div class="notice error">
+        Insufficient fictional balance.
+      </div>`;
+
+    return;
+  }
+
+  wallet.balance -= amount;
+
+  const reference =
+    "NWB-" + Date.now().toString(36).toUpperCase();
+
+  transactions.unshift({
+    date:new Date(),
+    type:"Withdrawal",
+    currency,
+    amount:-amount,
+    status:"Pending",
+    reference,
+    description:note
+  });
+
+  $("wo").innerHTML =
+    `<div class="notice">
+      Withdrawal request recorded.<br>
+      Reference: <strong>${reference}</strong>
+    </div>`;
+
+  setTimeout(home,1200);
+}
+
+
+function history(){
+
+  let rows = "";
+
+  transactions.forEach(t=>{
+
+    rows += `
+      <tr>
+        <td>${t.date.toLocaleString()}</td>
+        <td>${t.type}</td>
+        <td>${t.currency}</td>
+        <td>${money(Math.abs(t.amount),t.currency)}</td>
+        <td>
+          <span class="status">${t.status}</span>
+        </td>
+        <td>${t.reference}</td>
+      </tr>
+    `;
+
+  });
+
+  if(!rows){
+
+    rows = `
+      <tr>
+        <td colspan="6">
+          No fictional transactions yet.
+        </td>
+      </tr>
+    `;
+
+  }
+
+  $("content").innerHTML = `
+
+    <div class="card">
+
+      <h2>Transactions</h2>
+
+      <p class="muted">
+        Recent activity in this fictional workspace.
+      </p>
+
+      <div style="overflow:auto">
+
+        <table>
+
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Reference</th>
+          </tr>
+
+          ${rows}
+
+        </table>
+
+      </div>
+
+    </div>
+  `;
+}
+
+
+function closeModal(){
+  $("modal").classList.add("hidden");
+}
+
+function openModal(title,text){
+
+  $("modalTitle").textContent = title;
+  $("modalText").textContent = text;
+  $("modal").classList.remove("hidden");
+
+}
+
 </script>
+
 </body>
 </html>
