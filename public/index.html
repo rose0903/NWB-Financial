@@ -8,54 +8,60 @@
 <style>
 *{box-sizing:border-box}
 :root{
-  --navy:#102a43;
+  --navy:#0d2340;
   --blue:#1261a0;
   --blue2:#1976d2;
-  --cyan:#1f8a9e;
-  --bg:#f4f7fb;
+  --cyan:#17889b;
+  --bg:#f3f6fa;
   --card:#fff;
   --text:#172033;
-  --muted:#68778d;
-  --border:#e4eaf0;
+  --muted:#6b7a90;
+  --border:#e3e9f0;
   --green:#16803c;
   --red:#b42318;
-  --shadow:0 8px 30px rgba(16,42,67,.08)
+  --shadow:0 10px 35px rgba(13,35,64,.08)
 }
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
 }
+
 button,input,select{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
 
 .top{
-  background:linear-gradient(135deg,#102a43,#1261a0);
-  color:white;
-  padding:16px 22px;
+  background:linear-gradient(135deg,#0d2340,#1261a0);
+  color:#fff;
+  padding:15px 22px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   position:sticky;
   top:0;
-  z-index:10;
-  box-shadow:0 3px 15px rgba(0,0,0,.12)
+  z-index:20;
+  box-shadow:0 3px 18px rgba(0,0,0,.14)
 }
+
 .brand{
   font-size:21px;
-  font-weight:800;
+  font-weight:850;
   letter-spacing:.2px
 }
+
 .badge{
   font-size:10px;
-  background:#1f8a9e;
+  background:#17889b;
   padding:5px 8px;
   border-radius:20px;
   margin-left:6px;
-  vertical-align:middle
+  vertical-align:middle;
+  letter-spacing:.4px
 }
+
 .topRight{
   font-size:13px;
   opacity:.9
@@ -68,7 +74,7 @@ button{cursor:pointer}
 }
 
 .card{
-  background:var(--card);
+  background:#fff;
   border:1px solid var(--border);
   border-radius:18px;
   padding:22px;
@@ -90,6 +96,7 @@ h1,h2,h3{margin-top:0}
   margin:20px 0;
   flex-wrap:wrap
 }
+
 .tabs button{
   border:0;
   padding:10px 14px;
@@ -98,26 +105,29 @@ h1,h2,h3{margin-top:0}
   color:#31516e;
   font-weight:700
 }
+
 .tabs button.active{
   background:var(--blue);
-  color:white
+  color:#fff
 }
 
 label{
   display:block;
-  font-weight:700;
   font-size:13px;
-  margin-top:10px
+  font-weight:750;
+  margin-top:12px
 }
+
 input,select{
   width:100%;
-  padding:12px 13px;
+  padding:13px;
   border:1px solid #ccd6e0;
   border-radius:10px;
   margin:6px 0 12px;
-  background:white;
+  background:#fff;
   outline:none
 }
+
 input:focus,select:focus{
   border-color:var(--blue);
   box-shadow:0 0 0 3px rgba(18,97,160,.10)
@@ -126,137 +136,269 @@ input:focus,select:focus{
 .btn{
   border:0;
   border-radius:10px;
-  padding:11px 16px;
+  padding:12px 17px;
   background:var(--blue);
-  color:white;
-  font-weight:750;
-  transition:.15s
+  color:#fff;
+  font-weight:750
 }
-.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
-.btn.alt{
-  background:#e8f1f8;
-  color:var(--blue)
-}
+
+.btn:hover{filter:brightness(1.06)}
+.btn.alt{background:#e8f1f8;color:var(--blue)}
 .btn.danger{background:var(--red)}
 .btn.green{background:var(--green)}
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:16px
-}
-
-.balanceCard{
-  color:white;
-  border-radius:18px;
-  padding:21px;
-  background:linear-gradient(135deg,#102a43,#1261a0);
-  box-shadow:var(--shadow)
-}
-.balanceCard:nth-child(2){
-  background:linear-gradient(135deg,#1d536b,#1f8a9e)
-}
-.balanceCard:nth-child(3){
-  background:linear-gradient(135deg,#34495e,#526b84)
-}
-.currency{
-  font-size:13px;
-  opacity:.85
-}
-.balance{
-  font-size:28px;
-  font-weight:850;
-  margin:9px 0
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-  gap:11px;
-  margin-top:15px
-}
-.action{
-  padding:15px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:white;
-  text-align:left;
-  font-weight:750;
-  color:var(--text)
-}
-.action:hover{
-  border-color:#b9d1e5;
-  background:#f8fbfe
-}
-.action span{
-  display:block;
-  font-size:12px;
-  color:var(--muted);
-  font-weight:500;
-  margin-top:4px
-}
-
-.notice{
-  padding:12px 14px;
-  border-radius:10px;
-  margin:12px 0;
-  background:#eef7ee;
-  color:#176b35
-}
-.error{
-  background:#fff0f0;
-  color:#a51d2d
-}
-.info{
-  background:#eef5ff;
-  color:#24527b
-}
-
 .headerRow{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:15px;
-  margin-bottom:18px
+  margin-bottom:20px
 }
 
 .profile{
   display:flex;
   align-items:center;
-  gap:10px
+  gap:12px
 }
+
 .avatar{
-  width:42px;
-  height:42px;
+  width:46px;
+  height:46px;
   border-radius:50%;
   background:#dcecf8;
   color:var(--blue);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:850
+  font-weight:850;
+  font-size:18px
 }
 
-.quick{
-  margin-top:18px
+.accountMeta{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:4px
+}
+
+.accountMeta span{
+  font-size:12px;
+  color:var(--muted)
+}
+
+.hero{
+  background:linear-gradient(135deg,#0d2340,#1261a0 70%,#17889b);
+  color:#fff;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow)
+}
+
+.heroTop{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:flex-start
+}
+
+.heroLabel{
+  font-size:13px;
+  opacity:.8
+}
+
+.heroBalance{
+  font-size:36px;
+  font-weight:850;
+  margin:8px 0 3px
+}
+
+.heroSub{
+  font-size:12px;
+  opacity:.75
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px
+}
+
+.balanceCard{
+  color:#fff;
+  border-radius:18px;
+  padding:20px;
+  background:linear-gradient(135deg,#173e63,#1261a0);
+  box-shadow:var(--shadow)
+}
+
+.balanceCard:nth-child(2){
+  background:linear-gradient(135deg,#175b6b,#17889b)
+}
+
+.balanceCard:nth-child(3){
+  background:linear-gradient(135deg,#35485d,#526b84)
+}
+
+.balanceCard:nth-child(4){
+  background:linear-gradient(135deg,#294b63,#3b7188)
+}
+
+.currency{
+  font-size:12px;
+  opacity:.8
+}
+
+.balance{
+  font-size:25px;
+  font-weight:850;
+  margin:9px 0
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(175px,1fr));
+  gap:11px;
+  margin-top:15px
+}
+
+.action{
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#fff;
+  text-align:left;
+  font-weight:800;
+  color:var(--text)
+}
+
+.action:hover{
+  border-color:#b9d1e5;
+  background:#f8fbfe
+}
+
+.actionIcon{
+  font-size:22px;
+  margin-bottom:7px
+}
+
+.action span{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:5px
+}
+
+.notice{
+  padding:13px 15px;
+  border-radius:10px;
+  margin:12px 0;
+  background:#eef7ee;
+  color:#176b35
+}
+
+.error{
+  background:#fff0f0;
+  color:#a51d2d
+}
+
+.info{
+  background:#eef5ff;
+  color:#24527b
+}
+
+.formGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.review{
+  background:#f7f9fc;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin:18px 0
+}
+
+.reviewRow{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:11px 0;
+  border-bottom:1px solid #e5eaf0;
+  font-size:14px
+}
+
+.reviewRow:last-child{border-bottom:0}
+
+.reviewRow span:first-child{
+  color:var(--muted)
+}
+
+.reviewRow strong{
+  text-align:right
+}
+
+.recipient{
+  background:linear-gradient(135deg,#f1f7fc,#fff);
+  border:1px solid #dce7f1;
+  border-radius:14px;
+  padding:17px;
+  margin:15px 0
+}
+
+.recipientName{
+  font-weight:850;
+  font-size:17px
+}
+
+.accountNumber{
+  font-family:monospace;
+  letter-spacing:1px;
+  color:var(--muted);
+  margin-top:4px
+}
+
+.successBox{
+  text-align:center;
+  padding:25px 15px
+}
+
+.successCircle{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#e5f6e9;
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 15px;
+  font-size:28px;
+  font-weight:900
 }
 
 table{
   width:100%;
   border-collapse:collapse
 }
+
 th,td{
   text-align:left;
   padding:12px;
   border-bottom:1px solid #edf0f3;
   font-size:13px
 }
+
 th{
   color:#526176;
-  font-size:12px;
+  font-size:11px;
   text-transform:uppercase;
   letter-spacing:.3px
 }
+
 .status{
   display:inline-block;
   padding:4px 8px;
@@ -274,32 +416,15 @@ th{
   font-size:12px
 }
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(10,25,40,.48);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  z-index:30
-}
-.modalBox{
-  background:white;
-  width:min(450px,100%);
-  border-radius:18px;
-  padding:24px;
-  box-shadow:0 20px 70px rgba(0,0,0,.25)
-}
-
 @media(max-width:650px){
   .wrap{padding:15px}
   .top{padding:14px 15px}
   .topRight{display:none}
   .form{margin:25px auto}
   .headerRow{align-items:flex-start}
-  .balance{font-size:25px}
-  table{min-width:650px}
+  .heroBalance{font-size:29px}
+  .formGrid{grid-template-columns:1fr}
+  table{min-width:700px}
 }
 </style>
 </head>
@@ -315,21 +440,30 @@ th{
 
 <main class="wrap">
 
-<!-- LOGIN -->
 <section id="auth">
+
   <div class="card form">
 
     <h1 id="authTitle">Welcome back</h1>
-    <p class="muted">Sign in to your fictional NWB Financial workspace.</p>
+
+    <p class="muted">
+      Sign in to your fictional NWB Financial workspace.
+    </p>
 
     <div class="tabs">
-      <button id="loginTab" class="active" onclick="showAuth('login')">Sign in</button>
-      <button id="registerTab" onclick="showAuth('register')">Create account</button>
+      <button id="loginTab" class="active" onclick="showAuth('login')">
+        Sign in
+      </button>
+
+      <button id="registerTab" onclick="showAuth('register')">
+        Create account
+      </button>
     </div>
 
     <div id="msg"></div>
 
     <div id="loginBox">
+
       <label>Email</label>
       <input id="le" type="email" placeholder="you@example.com">
 
@@ -340,9 +474,10 @@ th{
         Sign in
       </button>
 
-      <p class="small muted" style="margin-top:15px">
-        This is a fictional demonstration interface.
+      <p class="small muted">
+        Fictional demonstration interface — no real banking services are provided.
       </p>
+
     </div>
 
     <div id="registerBox" class="hidden">
@@ -359,36 +494,78 @@ th{
       <button class="btn" style="width:100%" onclick="register()">
         Create account
       </button>
+
     </div>
 
   </div>
+
 </section>
 
 
-<!-- APP -->
 <section id="app" class="hidden">
 
   <div class="headerRow">
+
     <div class="profile">
+
       <div class="avatar" id="avatar">N</div>
+
       <div>
-        <h1 id="welcome" style="margin-bottom:2px">Welcome</h1>
-        <div class="muted small">Multi-currency fictional account</div>
+
+        <h1 id="welcome" style="margin-bottom:2px">
+          Welcome
+        </h1>
+
+        <div class="accountMeta">
+
+          <span>
+            Account: <strong id="accountNumber"></strong>
+          </span>
+
+          <span>
+            Status: <strong>Active</strong>
+          </span>
+
+        </div>
+
       </div>
+
     </div>
 
-    <button class="btn danger" onclick="logout()">Sign out</button>
+    <button class="btn danger" onclick="logout()">
+      Sign out
+    </button>
+
   </div>
+
 
   <div class="tabs">
-    <button class="active" onclick="tab('home',this)">Dashboard</button>
-    <button onclick="tab('transfer',this)">Transfer</button>
-    <button onclick="tab('exchange',this)">Exchange</button>
-    <button onclick="tab('withdraw',this)">Withdraw</button>
-    <button onclick="tab('history',this)">Transactions</button>
+
+    <button class="active" onclick="tab('home',this)">
+      Dashboard
+    </button>
+
+    <button onclick="tab('transfer',this)">
+      Transfer
+    </button>
+
+    <button onclick="tab('exchange',this)">
+      Exchange
+    </button>
+
+    <button onclick="tab('withdraw',this)">
+      Withdraw
+    </button>
+
+    <button onclick="tab('history',this)">
+      Transactions
+    </button>
+
   </div>
 
+
   <div id="content"></div>
+
 
   <div class="footer">
     NWB Financial is a fictional financial interface created for demonstration purposes.
@@ -398,16 +575,6 @@ th{
 </section>
 
 </main>
-
-
-<!-- MODAL -->
-<div id="modal" class="modal hidden">
-  <div class="modalBox">
-    <h2 id="modalTitle">Notice</h2>
-    <p id="modalText" class="muted"></p>
-    <button class="btn" onclick="closeModal()">Close</button>
-  </div>
-</div>
 
 
 <script>
@@ -473,6 +640,7 @@ function showAuth(type){
     login ? "Welcome back" : "Create your account";
 
   $("msg").innerHTML = "";
+
 }
 
 
@@ -483,7 +651,11 @@ function login(){
 
   if(!email || !password){
 
-    showMessage("Please enter your email and password.",true);
+    showMessage(
+      "Please enter your email and password.",
+      true
+    );
+
     return;
   }
 
@@ -493,6 +665,7 @@ function login(){
   };
 
   openApp();
+
 }
 
 
@@ -518,6 +691,14 @@ function register(){
   };
 
   openApp();
+
+}
+
+
+function createAccountNumber(){
+
+  return "000" +
+    Math.floor(1000000 + Math.random()*8999999);
 }
 
 
@@ -526,12 +707,23 @@ function openApp(){
   $("auth").classList.add("hidden");
   $("app").classList.remove("hidden");
 
-  $("welcome").textContent = "Hello, " + user.name;
+  $("welcome").textContent =
+    "Hello, " + user.name;
 
   $("avatar").textContent =
     user.name.charAt(0).toUpperCase();
 
-  tab("home",document.querySelector(".tabs button"));
+  $("accountNumber").textContent =
+    user.accountNumber || createAccountNumber();
+
+  user.accountNumber =
+    $("accountNumber").textContent;
+
+  tab(
+    "home",
+    document.querySelector("#app .tabs button")
+  );
+
 }
 
 
@@ -546,6 +738,7 @@ function logout(){
   $("lp").value = "";
 
   showAuth("login");
+
 }
 
 
@@ -557,109 +750,206 @@ function tab(name,el){
 
   if(el) el.classList.add("active");
 
-  if(name === "home") home();
-  if(name === "transfer") transfer();
-  if(name === "exchange") exchange();
-  if(name === "withdraw") withdraw();
-  if(name === "history") history();
+  if(name==="home") home();
+  if(name==="transfer") transfer();
+  if(name==="exchange") exchange();
+  if(name==="withdraw") withdraw();
+  if(name==="history") history();
+
 }
 
 
 function home(){
 
   let html = `
+
+    <div class="hero">
+
+      <div class="heroTop">
+
+        <div>
+
+          <div class="heroLabel">
+            TOTAL FICTIONAL ACCOUNT VALUE
+          </div>
+
+          <div class="heroBalance">
+            $19,800.00
+          </div>
+
+          <div class="heroSub">
+            Demonstration balance • Not real funds
+          </div>
+
+        </div>
+
+        <div class="heroLabel">
+          NWB
+        </div>
+
+      </div>
+
+    </div>
+
     <div class="grid">
   `;
 
-  wallets.slice(0,3).forEach(w=>{
+  wallets.slice(0,4).forEach(w=>{
 
     html += `
+
       <div class="balanceCard">
-        <div class="currency">${w.currency} ACCOUNT</div>
-        <div class="balance">${money(w.balance,w.currency)}</div>
-        <div style="font-size:12px;opacity:.8">
-          Available balance
+
+        <div class="currency">
+          ${w.currency} ACCOUNT
         </div>
+
+        <div class="balance">
+          ${money(w.balance,w.currency)}
+        </div>
+
+        <div style="font-size:12px;opacity:.8">
+          Available fictional balance
+        </div>
+
       </div>
+
     `;
 
   });
 
   html += `
+
     </div>
 
-    <div class="card quick">
+    <div class="card" style="margin-top:18px">
+
       <h2>Quick actions</h2>
+
       <p class="muted">
-        Choose an action to manage your fictional account.
+        Manage your fictional account.
       </p>
 
       <div class="actions">
 
         <button class="action" onclick="tab('transfer')">
-          ↗ Transfer
-          <span>Move funds between accounts</span>
+
+          <div class="actionIcon">↗</div>
+
+          Transfer money
+
+          <span>
+            Send a fictional payment to a recipient
+          </span>
+
         </button>
 
         <button class="action" onclick="tab('exchange')">
-          ⇄ Exchange
-          <span>Convert between currencies</span>
+
+          <div class="actionIcon">⇄</div>
+
+          Exchange currency
+
+          <span>
+            Convert between fictional currencies
+          </span>
+
         </button>
 
         <button class="action" onclick="tab('withdraw')">
-          ↓ Withdraw
-          <span>Create a fictional withdrawal request</span>
+
+          <div class="actionIcon">↓</div>
+
+          Withdraw
+
+          <span>
+            Create a fictional withdrawal request
+          </span>
+
         </button>
 
         <button class="action" onclick="tab('history')">
-          ☷ Transactions
-          <span>View account activity</span>
+
+          <div class="actionIcon">☷</div>
+
+          Transactions
+
+          <span>
+            View recent fictional activity
+          </span>
+
         </button>
 
       </div>
+
     </div>
 
-    <div class="card quick">
-      <h2>All balances</h2>
+    <div class="card" style="margin-top:18px">
+
+      <h2>Account balances</h2>
 
       <div style="overflow:auto">
+
         <table>
+
           <tr>
             <th>Currency</th>
             <th>Available balance</th>
           </tr>
+
   `;
 
   wallets.forEach(w=>{
 
     html += `
+
       <tr>
-        <td><strong>${w.currency}</strong></td>
-        <td>${money(w.balance,w.currency)}</td>
+
+        <td>
+          <strong>${w.currency}</strong>
+        </td>
+
+        <td>
+          ${money(w.balance,w.currency)}
+        </td>
+
       </tr>
+
     `;
 
   });
 
   html += `
+
         </table>
+
       </div>
+
     </div>
+
   `;
 
   $("content").innerHTML = html;
+
 }
 
 
 function currencyOptions(id){
 
   return `
+
     <select id="${id}">
-      ${wallets.map(w =>
-        `<option value="${w.currency}">${w.currency}</option>`
+
+      ${wallets.map(w=>
+        `<option value="${w.currency}">
+          ${w.currency}
+        </option>`
       ).join("")}
+
     </select>
+
   `;
+
 }
 
 
@@ -669,85 +959,318 @@ function transfer(){
 
     <div class="card">
 
-      <h2>Transfer</h2>
+      <h2>Transfer money</h2>
 
       <p class="muted">
-        Create a fictional internal transfer.
+        Enter the recipient's details and review the fictional transfer before confirming.
       </p>
 
+      <div class="formGrid">
+
+        <div>
+
+          <label>Recipient full name</label>
+
+          <input
+            id="recipientName"
+            placeholder="Full name"
+          >
+
+        </div>
+
+        <div>
+
+          <label>Recipient account number</label>
+
+          <input
+            id="recipientAccount"
+            inputmode="numeric"
+            placeholder="Account number"
+          >
+
+        </div>
+
+      </div>
+
+      <label>Recipient bank</label>
+
+      <input
+        id="recipientBank"
+        placeholder="Bank name"
+      >
+
       <label>Currency</label>
+
       ${currencyOptions("tc")}
 
-      <label>Amount</label>
-      <input id="ta" type="number" min="0" step="0.01"
-        placeholder="0.00">
+      <label>Transfer amount</label>
 
-      <label>Description</label>
-      <input id="td" placeholder="Transfer description">
+      <input
+        id="ta"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="0.00"
+      >
 
-      <button class="btn" onclick="doTransfer()">
-        Send transfer
+      <label>Payment reference</label>
+
+      <input
+        id="td"
+        placeholder="Optional reference"
+      >
+
+      <button class="btn" onclick="reviewTransfer()">
+        Review transfer
       </button>
 
       <div id="out"></div>
 
     </div>
+
   `;
+
 }
 
 
-function doTransfer(){
+function reviewTransfer(){
 
-  const currency = $("tc").value;
-  const amount = Number($("ta").value);
+  const name =
+    $("recipientName").value.trim();
+
+  const account =
+    $("recipientAccount").value.trim();
+
+  const bank =
+    $("recipientBank").value.trim();
+
+  const currency =
+    $("tc").value;
+
+  const amount =
+    Number($("ta").value);
+
   const description =
-    $("td").value.trim() || "Fictional transfer";
+    $("td").value.trim() ||
+    "Fictional payment";
 
-  if(!amount || amount <= 0){
+  if(!name || !account || !bank){
 
-    $("out").innerHTML =
-      `<div class="notice error">
-        Enter a valid amount.
-      </div>`;
+    $("out").innerHTML = `
+
+      <div class="notice error">
+        Please enter the recipient's name, account number and bank.
+      </div>
+
+    `;
 
     return;
+
+  }
+
+  if(!amount || amount<=0){
+
+    $("out").innerHTML = `
+
+      <div class="notice error">
+        Enter a valid transfer amount.
+      </div>
+
+    `;
+
+    return;
+
   }
 
   const wallet =
-    wallets.find(w=>w.currency === currency);
+    wallets.find(w=>w.currency===currency);
 
-  if(amount > wallet.balance){
+  if(amount>wallet.balance){
+
+    $("out").innerHTML = `
+
+      <div class="notice error">
+        Insufficient fictional balance.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  $("out").innerHTML = `
+
+    <div class="review">
+
+      <h3>Review transfer</h3>
+
+      <div class="recipient">
+
+        <div class="recipientName">
+          ${escapeHTML(name)}
+        </div>
+
+        <div class="accountNumber">
+          Account: ${escapeHTML(account)}
+        </div>
+
+        <div class="small muted" style="margin-top:6px">
+          ${escapeHTML(bank)}
+        </div>
+
+      </div>
+
+      <div class="reviewRow">
+        <span>Amount</span>
+        <strong>${money(amount,currency)}</strong>
+      </div>
+
+      <div class="reviewRow">
+        <span>Currency</span>
+        <strong>${currency}</strong>
+      </div>
+
+      <div class="reviewRow">
+        <span>Reference</span>
+        <strong>${escapeHTML(description)}</strong>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+
+        <button class="btn" onclick="confirmTransfer(
+          '${escapeAttr(name)}',
+          '${escapeAttr(account)}',
+          '${escapeAttr(bank)}',
+          '${currency}',
+          ${amount},
+          '${escapeAttr(description)}'
+        )">
+          Confirm transfer
+        </button>
+
+        <button class="btn alt" onclick="transfer()">
+          Edit details
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function confirmTransfer(
+  name,
+  account,
+  bank,
+  currency,
+  amount,
+  description
+){
+
+  const wallet =
+    wallets.find(w=>w.currency===currency);
+
+  if(!wallet || amount>wallet.balance){
 
     $("out").innerHTML =
       `<div class="notice error">
-        Insufficient fictional balance.
+        The fictional balance is insufficient.
       </div>`;
 
     return;
+
   }
 
   wallet.balance -= amount;
 
   const reference =
-    "NWB-" + Date.now().toString(36).toUpperCase();
+    "NWB-" +
+    Date.now().toString(36).toUpperCase();
 
   transactions.unshift({
+
     date:new Date(),
     type:"Transfer",
-    currency,
+    currency:currency,
     amount:-amount,
     status:"Completed",
-    reference,
-    description
+    reference:reference,
+    description:description,
+    recipient:name,
+    account:account,
+    bank:bank
+
   });
 
-  $("out").innerHTML =
-    `<div class="notice">
-      Transfer completed successfully.<br>
-      Reference: <strong>${reference}</strong>
-    </div>`;
+  $("content").innerHTML = `
 
-  setTimeout(home,900);
+    <div class="card">
+
+      <div class="successBox">
+
+        <div class="successCircle">
+          ✓
+        </div>
+
+        <h2>Transfer completed</h2>
+
+        <p class="muted">
+          The fictional transfer has been recorded successfully.
+        </p>
+
+        <div class="recipient" style="text-align:left">
+
+          <div class="recipientName">
+            ${escapeHTML(name)}
+          </div>
+
+          <div class="accountNumber">
+            Account: ${escapeHTML(account)}
+          </div>
+
+          <div class="small muted">
+            ${escapeHTML(bank)}
+          </div>
+
+        </div>
+
+        <div class="review">
+
+          <div class="reviewRow">
+            <span>Amount</span>
+            <strong>${money(amount,currency)}</strong>
+          </div>
+
+          <div class="reviewRow">
+            <span>Reference</span>
+            <strong>${reference}</strong>
+          </div>
+
+          <div class="reviewRow">
+            <span>Status</span>
+            <strong>Completed</strong>
+          </div>
+
+        </div>
+
+        <button class="btn" onclick="tab('home')">
+          Back to dashboard
+        </button>
+
+        <button class="btn alt" onclick="tab('history')" style="margin-left:7px">
+          View transactions
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
 }
 
 
@@ -760,18 +1283,26 @@ function exchange(){
       <h2>Currency exchange</h2>
 
       <p class="muted">
-        Exchange fictional balances using the displayed rate.
+        Convert between fictional account currencies.
       </p>
 
       <label>From</label>
+
       ${currencyOptions("ef")}
 
       <label>To</label>
+
       ${currencyOptions("et")}
 
       <label>Amount</label>
-      <input id="ea" type="number" min="0" step="0.01"
-        placeholder="0.00">
+
+      <input
+        id="ea"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="0.00"
+      >
 
       <button class="btn" onclick="doExchange()">
         Exchange currency
@@ -780,53 +1311,58 @@ function exchange(){
       <div id="eo"></div>
 
     </div>
+
   `;
+
 }
 
 
 function doExchange(){
 
-  const from = $("ef").value;
-  const to = $("et").value;
-  const amount = Number($("ea").value);
+  const from=$("ef").value;
+  const to=$("et").value;
+  const amount=Number($("ea").value);
 
-  if(from === to){
+  if(from===to){
 
-    $("eo").innerHTML =
+    $("eo").innerHTML=
       `<div class="notice error">
         Choose two different currencies.
       </div>`;
 
     return;
+
   }
 
-  if(!amount || amount <= 0){
+  if(!amount || amount<=0){
 
-    $("eo").innerHTML =
+    $("eo").innerHTML=
       `<div class="notice error">
         Enter a valid amount.
       </div>`;
 
     return;
+
   }
 
-  const source =
-    wallets.find(w=>w.currency === from);
+  const source=
+    wallets.find(w=>w.currency===from);
 
-  const destination =
-    wallets.find(w=>w.currency === to);
+  const destination=
+    wallets.find(w=>w.currency===to);
 
-  if(amount > source.balance){
+  if(amount>source.balance){
 
-    $("eo").innerHTML =
+    $("eo").innerHTML=
       `<div class="notice error">
         Insufficient fictional balance.
       </div>`;
 
     return;
+
   }
 
-  const rates = {
+  const rates={
     USD:1,
     GBP:1.28,
     EUR:1.09,
@@ -836,14 +1372,14 @@ function doExchange(){
     AUD:.66
   };
 
-  const received =
-    amount * rates[from] / rates[to];
+  const received=
+    amount*rates[from]/rates[to];
 
-  source.balance -= amount;
-  destination.balance += received;
+  source.balance-=amount;
+  destination.balance+=received;
 
-  const reference =
-    "NWB-" + Date.now().toString(36).toUpperCase();
+  const reference=
+    "NWB-"+Date.now().toString(36).toUpperCase();
 
   transactions.unshift({
     date:new Date(),
@@ -851,23 +1387,26 @@ function doExchange(){
     currency:from,
     amount:-amount,
     status:"Completed",
-    reference,
+    reference:reference,
     description:`Exchange ${from} to ${to}`
   });
 
-  $("eo").innerHTML =
+  $("eo").innerHTML=
+
     `<div class="notice">
       Exchange completed.<br>
-      Received <strong>${money(received,to)}</strong>.
+      Received <strong>${money(received,to)}</strong>.<br>
+      Reference: <strong>${reference}</strong>
     </div>`;
 
-  setTimeout(home,1200);
+  setTimeout(home,1500);
+
 }
 
 
 function withdraw(){
 
-  $("content").innerHTML = `
+  $("content").innerHTML=`
 
     <div class="card">
 
@@ -878,14 +1417,25 @@ function withdraw(){
       </p>
 
       <label>Currency</label>
+
       ${currencyOptions("wc")}
 
       <label>Amount</label>
-      <input id="wa" type="number" min="0" step="0.01"
-        placeholder="0.00">
+
+      <input
+        id="wa"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="0.00"
+      >
 
       <label>Note</label>
-      <input id="wd" placeholder="Withdrawal note">
+
+      <input
+        id="wd"
+        placeholder="Withdrawal note"
+      >
 
       <button class="btn" onclick="doWithdraw()">
         Request withdrawal
@@ -894,99 +1444,122 @@ function withdraw(){
       <div id="wo"></div>
 
     </div>
+
   `;
+
 }
 
 
 function doWithdraw(){
 
-  const currency = $("wc").value;
-  const amount = Number($("wa").value);
-  const note =
-    $("wd").value.trim() || "Fictional withdrawal";
+  const currency=$("wc").value;
+  const amount=Number($("wa").value);
 
-  if(!amount || amount <= 0){
+  const note=
+    $("wd").value.trim() ||
+    "Fictional withdrawal";
 
-    $("wo").innerHTML =
+  if(!amount || amount<=0){
+
+    $("wo").innerHTML=
       `<div class="notice error">
         Enter a valid amount.
       </div>`;
 
     return;
+
   }
 
-  const wallet =
-    wallets.find(w=>w.currency === currency);
+  const wallet=
+    wallets.find(w=>w.currency===currency);
 
-  if(amount > wallet.balance){
+  if(amount>wallet.balance){
 
-    $("wo").innerHTML =
+    $("wo").innerHTML=
       `<div class="notice error">
         Insufficient fictional balance.
       </div>`;
 
     return;
+
   }
 
-  wallet.balance -= amount;
+  wallet.balance-=amount;
 
-  const reference =
-    "NWB-" + Date.now().toString(36).toUpperCase();
+  const reference=
+    "NWB-"+Date.now().toString(36).toUpperCase();
 
   transactions.unshift({
     date:new Date(),
     type:"Withdrawal",
-    currency,
+    currency:currency,
     amount:-amount,
     status:"Pending",
-    reference,
+    reference:reference,
     description:note
   });
 
-  $("wo").innerHTML =
+  $("wo").innerHTML=
+
     `<div class="notice">
       Withdrawal request recorded.<br>
       Reference: <strong>${reference}</strong>
     </div>`;
 
-  setTimeout(home,1200);
+  setTimeout(home,1500);
+
 }
 
 
 function history(){
 
-  let rows = "";
+  let rows="";
 
   transactions.forEach(t=>{
 
-    rows += `
+    rows+=`
+
       <tr>
+
         <td>${t.date.toLocaleString()}</td>
+
         <td>${t.type}</td>
+
         <td>${t.currency}</td>
+
         <td>${money(Math.abs(t.amount),t.currency)}</td>
+
         <td>
-          <span class="status">${t.status}</span>
+          <span class="status">
+            ${t.status}
+          </span>
         </td>
+
         <td>${t.reference}</td>
+
       </tr>
+
     `;
 
   });
 
   if(!rows){
 
-    rows = `
+    rows=`
+
       <tr>
+
         <td colspan="6">
           No fictional transactions yet.
         </td>
+
       </tr>
+
     `;
 
   }
 
-  $("content").innerHTML = `
+  $("content").innerHTML=`
 
     <div class="card">
 
@@ -1016,19 +1589,30 @@ function history(){
       </div>
 
     </div>
+
   `;
+
 }
 
 
-function closeModal(){
-  $("modal").classList.add("hidden");
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
 }
 
-function openModal(title,text){
 
-  $("modalTitle").textContent = title;
-  $("modalText").textContent = text;
-  $("modal").classList.remove("hidden");
+function escapeAttr(value){
+
+  return String(value)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,"&quot;");
 
 }
 
