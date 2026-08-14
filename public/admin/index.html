@@ -11,14 +11,13 @@
 :root{
   --navy:#0b1f36;
   --blue:#1261a0;
-  --blue2:#1677c8;
   --bg:#f4f7fb;
   --card:#fff;
   --text:#142033;
   --muted:#6d7b8d;
   --border:#e2e8ef;
   --green:#16803c;
-  --orange:#b56a00;
+  --orange:#a86400;
   --red:#b42318;
   --shadow:0 7px 25px rgba(11,31,54,.07)
 }
@@ -32,17 +31,16 @@ body{
 
 button,input,select{font:inherit}
 button{cursor:pointer}
-
 .hidden{display:none!important}
 
 .top{
   height:68px;
-  background:#fff;
+  background:white;
   border-bottom:1px solid var(--border);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 26px;
+  padding:0 25px;
   position:sticky;
   top:0;
   z-index:20
@@ -58,14 +56,14 @@ button{cursor:pointer}
 }
 
 .logo{
-  width:35px;
-  height:35px;
+  width:36px;
+  height:36px;
   border-radius:9px;
+  background:linear-gradient(135deg,#102a43,#1261a0);
+  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:var(--blue);
-  color:#fff;
   font-weight:900
 }
 
@@ -75,14 +73,13 @@ button{cursor:pointer}
   border-radius:20px;
   background:#eaf1f7;
   color:var(--blue);
-  font-weight:800;
-  margin-left:5px
+  font-weight:850
 }
 
 .topRight{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
   color:var(--muted);
   font-size:13px
 }
@@ -96,27 +93,27 @@ button{cursor:pointer}
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:850
+  font-weight:900
 }
 
 .layout{
   display:grid;
-  grid-template-columns:230px 1fr;
+  grid-template-columns:225px 1fr;
   min-height:calc(100vh - 68px)
 }
 
 .sidebar{
   background:var(--navy);
-  color:#fff;
-  padding:20px 12px
+  color:white;
+  padding:18px 11px
 }
 
 .sideTitle{
-  font-size:11px;
-  text-transform:uppercase;
+  font-size:10px;
   color:#91a4b8;
-  padding:12px 12px 8px;
-  letter-spacing:.7px
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  padding:11px
 }
 
 .navBtn{
@@ -128,19 +125,19 @@ button{cursor:pointer}
   padding:12px;
   border-radius:9px;
   margin-bottom:3px;
-  font-weight:700
+  font-weight:750
 }
 
 .navBtn:hover,
 .navBtn.active{
   background:#163c60;
-  color:#fff
+  color:white
 }
 
 .main{
-  padding:27px;
-  max-width:1400px;
-  width:100%
+  padding:26px;
+  width:100%;
+  max-width:1450px
 }
 
 .pageHead{
@@ -148,7 +145,7 @@ button{cursor:pointer}
   justify-content:space-between;
   align-items:center;
   gap:15px;
-  margin-bottom:22px
+  margin-bottom:20px
 }
 
 .pageHead h1{
@@ -156,14 +153,14 @@ button{cursor:pointer}
 }
 
 .muted{color:var(--muted)}
-.small{font-size:12px}
+.small{font-size:11px}
 
 .btn{
   border:0;
   border-radius:9px;
-  padding:11px 15px;
+  padding:10px 14px;
   background:var(--blue);
-  color:#fff;
+  color:white;
   font-weight:800
 }
 
@@ -172,9 +169,8 @@ button{cursor:pointer}
   color:var(--blue)
 }
 
-.btn.danger{
-  background:var(--red)
-}
+.btn.green{background:var(--green)}
+.btn.danger{background:var(--red)}
 
 .grid{
   display:grid;
@@ -183,32 +179,32 @@ button{cursor:pointer}
 }
 
 .stat{
-  background:#fff;
+  background:white;
   border:1px solid var(--border);
   border-radius:15px;
-  padding:19px;
+  padding:18px;
   box-shadow:var(--shadow)
 }
 
 .statLabel{
-  font-size:12px;
+  font-size:11px;
   color:var(--muted)
 }
 
 .statValue{
-  font-size:26px;
+  font-size:27px;
   font-weight:900;
-  margin-top:8px
+  margin-top:7px
 }
 
 .statSub{
-  font-size:11px;
+  font-size:10px;
   color:var(--green);
-  margin-top:5px
+  margin-top:4px
 }
 
 .card{
-  background:#fff;
+  background:white;
   border:1px solid var(--border);
   border-radius:16px;
   padding:20px;
@@ -218,15 +214,13 @@ button{cursor:pointer}
 
 .cardHead{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   gap:10px;
   margin-bottom:15px
 }
 
-.cardHead h2{
-  margin:0
-}
+.cardHead h2{margin:0}
 
 .searchRow{
   display:flex;
@@ -239,7 +233,7 @@ input,select{
   padding:11px 12px;
   border:1px solid #ccd6e0;
   border-radius:9px;
-  background:#fff;
+  background:white;
   outline:none
 }
 
@@ -255,13 +249,13 @@ table{
 
 th,td{
   text-align:left;
-  padding:13px 10px;
+  padding:13px 9px;
   border-bottom:1px solid #edf0f3;
-  font-size:13px
+  font-size:12px
 }
 
 th{
-  font-size:11px;
+  font-size:10px;
   color:#647386;
   text-transform:uppercase;
   letter-spacing:.3px
@@ -275,34 +269,42 @@ th{
   font-weight:850
 }
 
-.status.active{
-  background:#eaf7ed;
-  color:var(--green)
-}
-
-.status.pending{
+.status.Pending{
   background:#fff4df;
-  color:var(--orange)
+  color:#9a6100
 }
 
-.status.completed{
+.status.Approved{
   background:#eaf7ed;
-  color:var(--green)
+  color:#176b35
 }
 
-.status.failed{
+.status.Rejected{
   background:#fff0f0;
-  color:var(--red)
+  color:#a51d2d
 }
 
 .actionBtn{
   border:0;
-  background:#eaf1f7;
-  color:var(--blue);
-  padding:7px 9px;
   border-radius:7px;
-  font-size:11px;
-  font-weight:800
+  padding:7px 9px;
+  font-size:10px;
+  font-weight:850
+}
+
+.actionBtn.approve{
+  background:#eaf7ed;
+  color:var(--green)
+}
+
+.actionBtn.reject{
+  background:#fff0f0;
+  color:var(--red)
+}
+
+.actionBtn.view{
+  background:#eaf1f7;
+  color:var(--blue)
 }
 
 .empty{
@@ -311,51 +313,13 @@ th{
   color:var(--muted)
 }
 
-.activity{
-  display:flex;
-  gap:12px;
-  padding:13px 0;
-  border-bottom:1px solid #edf0f3
-}
-
-.activity:last-child{
-  border-bottom:0
-}
-
-.activityIcon{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  background:#eaf1f7;
-  color:var(--blue);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:850
-}
-
-.activityText{
-  flex:1
-}
-
-.activityTitle{
-  font-weight:750;
-  font-size:13px
-}
-
-.activityTime{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:3px
-}
-
 .notice{
   padding:12px 14px;
   border-radius:9px;
   background:#eef5ff;
   color:#24527b;
-  margin-bottom:15px;
-  font-size:13px
+  font-size:12px;
+  margin-bottom:15px
 }
 
 .login{
@@ -364,24 +328,44 @@ th{
 }
 
 .login .card{
-  margin-top:0
-}
-
-.login h1{
-  margin-bottom:6px
+  margin:0
 }
 
 label{
   display:block;
-  font-size:12px;
+  font-size:11px;
   font-weight:800;
   margin:13px 0 5px
+}
+
+.detailGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+
+.detail{
+  background:#f7f9fc;
+  border-radius:10px;
+  padding:12px
+}
+
+.detailLabel{
+  font-size:9px;
+  color:var(--muted);
+  text-transform:uppercase
+}
+
+.detailValue{
+  font-size:13px;
+  font-weight:800;
+  margin-top:4px
 }
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(5,18,31,.48);
+  background:rgba(5,18,31,.5);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -390,58 +374,31 @@ label{
 }
 
 .modalBox{
-  width:min(560px,100%);
+  background:white;
+  width:min(600px,100%);
   max-height:90vh;
   overflow:auto;
-  background:#fff;
   border-radius:17px;
   padding:22px
-}
-
-.detailGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px
-}
-
-.detail{
-  background:#f7f9fc;
-  border-radius:10px;
-  padding:13px
-}
-
-.detailLabel{
-  font-size:10px;
-  color:var(--muted);
-  text-transform:uppercase
-}
-
-.detailValue{
-  margin-top:5px;
-  font-weight:800;
-  font-size:14px
 }
 
 .footer{
   text-align:center;
   padding:25px;
   color:#7b8796;
-  font-size:11px
+  font-size:10px
 }
 
 @media(max-width:1000px){
   .grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .layout{
-    grid-template-columns:190px 1fr
+    grid-template-columns:1fr 1fr
   }
 }
 
 @media(max-width:700px){
+
   .top{
-    padding:0 14px
+    padding:0 13px
   }
 
   .topRight span{
@@ -469,15 +426,11 @@ label{
   }
 
   .main{
-    padding:16px 12px
+    padding:15px 11px
   }
 
   .grid{
     grid-template-columns:1fr 1fr
-  }
-
-  .pageHead{
-    align-items:flex-start
   }
 
   .tableWrap{
@@ -485,16 +438,10 @@ label{
   }
 
   table{
-    min-width:700px
+    min-width:850px
   }
 
   .detailGrid{
-    grid-template-columns:1fr
-  }
-}
-
-@media(max-width:450px){
-  .grid{
     grid-template-columns:1fr
   }
 }
@@ -504,16 +451,20 @@ label{
 <body>
 
 
-<!-- ADMIN LOGIN -->
-
 <section id="loginPage" class="login">
 
   <div class="card">
 
     <div class="brand">
+
       <div class="logo">N</div>
+
       NWB Financial
-      <span class="adminBadge">ADMIN</span>
+
+      <span class="adminBadge">
+        ADMIN
+      </span>
+
     </div>
 
     <h1 style="margin-top:25px">
@@ -526,11 +477,11 @@ label{
 
     <div id="loginMessage"></div>
 
-    <label>Administrator email</label>
+    <label>Email</label>
 
     <input id="adminEmail"
            type="email"
-           placeholder="admin@example.com">
+           placeholder="Administrator email">
 
     <label>Password</label>
 
@@ -544,17 +495,10 @@ label{
       Sign in
     </button>
 
-    <p class="small muted"
-       style="margin-top:18px">
-      Prototype administration interface.
-    </p>
-
   </div>
 
 </section>
 
-
-<!-- ADMIN APP -->
 
 <section id="adminApp" class="hidden">
 
@@ -574,13 +518,9 @@ label{
 
   <div class="topRight">
 
-    <span>
-      Administrator
-    </span>
+    <span>Administrator</span>
 
-    <div class="avatar">
-      A
-    </div>
+    <div class="avatar">A</div>
 
     <button class="btn danger"
             onclick="adminLogout()">
@@ -594,61 +534,59 @@ label{
 
 <div class="layout">
 
-  <aside class="sidebar">
+<aside class="sidebar">
 
-    <div class="sideTitle">
-      Administration
-    </div>
+  <div class="sideTitle">
+    Administration
+  </div>
 
-    <button class="navBtn active"
-            onclick="showPage('overview',this)">
-      Overview
-    </button>
+  <button class="navBtn active"
+          onclick="showPage('overview',this)">
+    Overview
+  </button>
 
-    <button class="navBtn"
-            onclick="showPage('customers',this)">
-      Customers
-    </button>
+  <button class="navBtn"
+          onclick="showPage('customers',this)">
+    Customers
+  </button>
 
-    <button class="navBtn"
-            onclick="showPage('accounts',this)">
-      Accounts
-    </button>
+  <button class="navBtn"
+          onclick="showPage('accounts',this)">
+    Accounts
+  </button>
 
-    <button class="navBtn"
-            onclick="showPage('transactions',this)">
-      Transactions
-    </button>
+  <button class="navBtn"
+          onclick="showPage('transactions',this)">
+    Transactions
+  </button>
 
-    <button class="navBtn"
-            onclick="showPage('requests',this)">
-      Requests
-    </button>
+  <button class="navBtn"
+          onclick="showPage('requests',this)">
+    Approval requests
+  </button>
 
-    <button class="navBtn"
-            onclick="showPage('activity',this)">
-      Activity
-    </button>
+  <button class="navBtn"
+          onclick="showPage('activity',this)">
+    Activity
+  </button>
 
-  </aside>
+</aside>
 
 
-  <main class="main">
+<main class="main">
 
-    <div id="pageContent"></div>
+  <div id="pageContent"></div>
 
-    <div class="footer">
-      NWB Financial administration interface
-    </div>
+  <div class="footer">
+    NWB Financial Administration
+  </div>
 
-  </main>
+</main>
 
 </div>
 
 </section>
 
-
-<!-- MODAL -->
 
 <div id="modal" class="modal hidden">
 
@@ -657,7 +595,7 @@ label{
     <div class="cardHead">
 
       <h2 id="modalTitle">
-        Details
+        Transaction
       </h2>
 
       <button class="btn alt"
@@ -678,8 +616,6 @@ label{
 
 const $=id=>document.getElementById(id);
 
-let adminLoggedIn=false;
-
 let customers=[
   {
     id:"CUS-1001",
@@ -693,13 +629,6 @@ let customers=[
     name:"Jordan Williams",
     email:"jordan@example.com",
     account:"5647382910",
-    status:"Active"
-  },
-  {
-    id:"CUS-1003",
-    name:"Taylor Smith",
-    email:"taylor@example.com",
-    account:"9182736450",
     status:"Active"
   }
 ];
@@ -719,54 +648,41 @@ let accounts=[
     customer:"CUS-1002",
     currency:"EUR",
     balance:3100
-  },
-  {
-    customer:"CUS-1003",
-    currency:"ZAR",
-    balance:18000
   }
 ];
 
-let transactions=[
-  {
-    reference:"NWB-7A91",
-    customer:"CUS-1001",
-    type:"Transfer",
-    currency:"USD",
-    amount:450,
-    status:"Completed",
-    date:new Date()
-  },
-  {
-    reference:"NWB-4C28",
-    customer:"CUS-1002",
-    type:"Exchange",
-    currency:"EUR",
-    amount:220,
-    status:"Completed",
-    date:new Date(Date.now()-3600000)
-  },
-  {
-    reference:"NWB-9D44",
-    customer:"CUS-1003",
-    type:"Withdrawal",
-    currency:"ZAR",
-    amount:800,
-    status:"Pending",
-    date:new Date(Date.now()-7200000)
-  }
-];
+let transactions=[];
 
-let activities=[
-  {
-    title:"Administration workspace opened",
-    time:"Just now"
-  },
-  {
-    title:"Recent account activity synchronized",
-    time:"Today"
+let activities=[];
+
+
+function loadData(){
+
+  try{
+
+    const saved=
+      localStorage.getItem("nwb_transactions");
+
+    if(saved)
+      transactions=JSON.parse(saved);
+
+  }catch(e){
+
+    transactions=[];
+
   }
-];
+
+}
+
+
+function saveData(){
+
+  localStorage.setItem(
+    "nwb_transactions",
+    JSON.stringify(transactions)
+  );
+
+}
 
 
 function adminLogin(){
@@ -787,11 +703,10 @@ function adminLogin(){
     return;
   }
 
-  adminLoggedIn=true;
-
   $("loginPage").classList.add("hidden");
-
   $("adminApp").classList.remove("hidden");
+
+  loadData();
 
   showPage(
     "overview",
@@ -803,20 +718,18 @@ function adminLogin(){
 
 function adminLogout(){
 
-  adminLoggedIn=false;
-
   $("adminApp").classList.add("hidden");
-
   $("loginPage").classList.remove("hidden");
 
   $("adminEmail").value="";
-
   $("adminPassword").value="";
 
 }
 
 
 function showPage(page,button){
+
+  loadData();
 
   document
     .querySelectorAll(".navBtn")
@@ -853,12 +766,6 @@ function overview(){
       t=>t.status==="Pending"
     ).length;
 
-  const totalBalance=
-    accounts.reduce(
-      (sum,a)=>sum+a.balance,
-      0
-    );
-
   $("pageContent").innerHTML=`
 
     <div class="pageHead">
@@ -874,8 +781,8 @@ function overview(){
       </div>
 
       <button class="btn"
-              onclick="refreshOverview()">
-        Refresh
+              onclick="showPage('requests')">
+        Review requests
       </button>
 
     </div>
@@ -884,72 +791,27 @@ function overview(){
     <div class="grid">
 
       <div class="stat">
-
-        <div class="statLabel">
-          Customers
-        </div>
-
-        <div class="statValue">
-          ${customers.length}
-        </div>
-
-        <div class="statSub">
-          Active profiles
-        </div>
-
+        <div class="statLabel">Customers</div>
+        <div class="statValue">${customers.length}</div>
+        <div class="statSub">Active profiles</div>
       </div>
 
-
       <div class="stat">
-
-        <div class="statLabel">
-          Currency accounts
-        </div>
-
-        <div class="statValue">
-          ${accounts.length}
-        </div>
-
-        <div class="statSub">
-          Across supported currencies
-        </div>
-
+        <div class="statLabel">Accounts</div>
+        <div class="statValue">${accounts.length}</div>
+        <div class="statSub">Currency accounts</div>
       </div>
 
-
       <div class="stat">
-
-        <div class="statLabel">
-          Account balances
-        </div>
-
-        <div class="statValue">
-          ${totalBalance.toLocaleString(undefined,{
-            maximumFractionDigits:2
-          })}
-        </div>
-
-        <div class="statSub">
-          Combined displayed value
-        </div>
-
+        <div class="statLabel">Transactions</div>
+        <div class="statValue">${transactions.length}</div>
+        <div class="statSub">Recorded activity</div>
       </div>
 
-
       <div class="stat">
-
-        <div class="statLabel">
-          Pending requests
-        </div>
-
-        <div class="statValue">
-          ${pending}
-        </div>
-
-        <div class="statSub">
-          Require review
-        </div>
-
+        <div class="statLabel">Pending approval</div>
+        <div class="statValue">${pending}</div>
+        <div class="statSub">Awaiting review</div>
       </div>
 
     </div>
@@ -959,16 +821,16 @@ function overview(){
 
       <div class="cardHead">
 
-        <h2>Recent transactions</h2>
+        <h2>Pending approvals</h2>
 
         <button class="btn alt"
-                onclick="showPage('transactions')">
-          View all
+                onclick="showPage('requests')">
+          Open requests
         </button>
 
       </div>
 
-      ${transactionRows(5)}
+      ${pendingRows()}
 
     </div>
 
@@ -976,17 +838,10 @@ function overview(){
     <div class="card">
 
       <div class="cardHead">
-
         <h2>Recent activity</h2>
-
-        <button class="btn alt"
-                onclick="showPage('activity')">
-          View activity
-        </button>
-
       </div>
 
-      ${activityRows()}
+      ${recentActivity()}
 
     </div>
 
@@ -995,14 +850,364 @@ function overview(){
 }
 
 
-function refreshOverview(){
+function pendingRows(){
+
+  const pending=
+    transactions.filter(
+      t=>t.status==="Pending"
+    );
+
+  if(!pending.length)
+    return `<div class="empty">
+      No transactions are waiting for approval.
+    </div>`;
+
+  return `
+
+    <div class="tableWrap">
+
+      <table>
+
+        <tr>
+          <th>Customer</th>
+          <th>Recipient</th>
+          <th>Amount</th>
+          <th>Reference</th>
+          <th></th>
+        </tr>
+
+        ${pending.slice(0,5).map(t=>`
+
+          <tr>
+
+            <td>
+              ${escapeHtml(t.customerName||"Customer")}
+            </td>
+
+            <td>
+              <strong>
+                ${escapeHtml(t.recipientName||"—")}
+              </strong>
+
+              <div class="small muted">
+                ${escapeHtml(t.recipientAccount||"—")}
+              </div>
+            </td>
+
+            <td>
+              ${money(t.amount,t.currency)}
+            </td>
+
+            <td>
+              ${t.id}
+            </td>
+
+            <td>
+              <button class="actionBtn approve"
+                      onclick="viewRequest('${t.id}')">
+                Review
+              </button>
+            </td>
+
+          </tr>
+
+        `).join("")}
+
+      </table>
+
+    </div>
+
+  `;
+
+}
+
+
+function requestPage(){
+
+  loadData();
+
+  const pending=
+    transactions.filter(
+      t=>t.status==="Pending"
+    );
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Approval requests</h1>
+
+        <div class="muted">
+          Review pending transaction requests.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      ${
+        pending.length
+        ?`
+        <div class="tableWrap">
+
+          <table>
+
+            <tr>
+              <th>Customer</th>
+              <th>Recipient</th>
+              <th>Account</th>
+              <th>Bank</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+
+            ${pending.map(t=>`
+
+              <tr>
+
+                <td>
+                  ${escapeHtml(t.customerName||"Customer")}
+                </td>
+
+                <td>
+                  <strong>
+                    ${escapeHtml(t.recipientName)}
+                  </strong>
+                </td>
+
+                <td>
+                  ${escapeHtml(t.recipientAccount)}
+                </td>
+
+                <td>
+                  ${escapeHtml(t.recipientBank)}
+                </td>
+
+                <td>
+                  ${money(t.amount,t.currency)}
+                </td>
+
+                <td>
+                  ${new Date(t.createdAt).toLocaleString()}
+                </td>
+
+                <td>
+
+                  <button class="actionBtn approve"
+                          onclick="approveTransaction('${t.id}')">
+                    Approve
+                  </button>
+
+                  <button class="actionBtn reject"
+                          onclick="rejectTransaction('${t.id}')">
+                    Reject
+                  </button>
+
+                </td>
+
+              </tr>
+
+            `).join("")}
+
+          </table>
+
+        </div>
+        `
+        :`
+        <div class="empty">
+          No pending transactions.
+        </div>
+        `
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+function viewRequest(id){
+
+  loadData();
+
+  const t=
+    transactions.find(x=>x.id===id);
+
+  if(!t)return;
+
+  $("modalTitle").textContent=
+    "Transaction review";
+
+  $("modalContent").innerHTML=`
+
+    <div class="detailGrid">
+
+      <div class="detail">
+        <div class="detailLabel">
+          Reference
+        </div>
+        <div class="detailValue">
+          ${t.id}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Status
+        </div>
+        <div class="detailValue">
+          <span class="status ${t.status}">
+            ${t.status}
+          </span>
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Customer
+        </div>
+        <div class="detailValue">
+          ${escapeHtml(t.customerName||"Customer")}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Currency
+        </div>
+        <div class="detailValue">
+          ${t.currency}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Recipient
+        </div>
+        <div class="detailValue">
+          ${escapeHtml(t.recipientName)}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Account number
+        </div>
+        <div class="detailValue">
+          ${escapeHtml(t.recipientAccount)}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Bank
+        </div>
+        <div class="detailValue">
+          ${escapeHtml(t.recipientBank)}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">
+          Amount
+        </div>
+        <div class="detailValue">
+          ${money(t.amount,t.currency)}
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:flex;
+                gap:10px;
+                margin-top:20px">
+
+      <button class="btn green"
+              onclick="approveTransaction('${t.id}')">
+        Approve
+      </button>
+
+      <button class="btn danger"
+              onclick="rejectTransaction('${t.id}')">
+        Reject
+      </button>
+
+    </div>
+
+  `;
+
+  openModal();
+
+}
+
+
+function approveTransaction(id){
+
+  loadData();
+
+  const t=
+    transactions.find(x=>x.id===id);
+
+  if(!t||t.status!=="Pending")
+    return;
+
+  t.status="Approved";
+
+  t.approvedAt=
+    new Date().toISOString();
+
+  saveData();
 
   activities.unshift({
-    title:"Dashboard refreshed",
+    title:"Transaction approved: "+id,
     time:"Just now"
   });
 
-  overview();
+  closeModal();
+
+  showPage(
+    "requests",
+    document.querySelectorAll(".navBtn")[4]
+  );
+
+}
+
+
+function rejectTransaction(id){
+
+  loadData();
+
+  const t=
+    transactions.find(x=>x.id===id);
+
+  if(!t||t.status!=="Pending")
+    return;
+
+  t.status="Rejected";
+
+  t.rejectedAt=
+    new Date().toISOString();
+
+  saveData();
+
+  activities.unshift({
+    title:"Transaction rejected: "+id,
+    time:"Just now"
+  });
+
+  closeModal();
+
+  showPage(
+    "requests",
+    document.querySelectorAll(".navBtn")[4]
+  );
 
 }
 
@@ -1014,13 +1219,10 @@ function customerPage(){
     <div class="pageHead">
 
       <div>
-
         <h1>Customers</h1>
-
         <div class="muted">
           Customer profiles
         </div>
-
       </div>
 
     </div>
@@ -1031,7 +1233,7 @@ function customerPage(){
       <div class="searchRow">
 
         <input id="customerSearch"
-               placeholder="Search by name, email or account number"
+               placeholder="Search customers"
                oninput="filterCustomers()">
 
       </div>
@@ -1054,7 +1256,7 @@ function filterCustomers(){
       .toLowerCase()
       .trim();
 
-  const filtered=
+  const list=
     customers.filter(c=>
       c.name.toLowerCase().includes(q)||
       c.email.toLowerCase().includes(q)||
@@ -1062,7 +1264,7 @@ function filterCustomers(){
     );
 
   $("customerTable").innerHTML=
-    customerRows(filtered);
+    customerRows(list);
 
 }
 
@@ -1083,7 +1285,6 @@ function customerRows(list){
           <th>Email</th>
           <th>Account</th>
           <th>Status</th>
-          <th></th>
         </tr>
 
         ${list.map(c=>`
@@ -1092,6 +1293,7 @@ function customerRows(list){
 
             <td>
               <strong>${escapeHtml(c.name)}</strong>
+
               <div class="small muted">
                 ${c.id}
               </div>
@@ -1106,16 +1308,9 @@ function customerRows(list){
             </td>
 
             <td>
-              <span class="status active">
+              <span class="status Approved">
                 ${c.status}
               </span>
-            </td>
-
-            <td>
-              <button class="actionBtn"
-                onclick="viewCustomer('${c.id}')">
-                View
-              </button>
             </td>
 
           </tr>
@@ -1131,77 +1326,6 @@ function customerRows(list){
 }
 
 
-function viewCustomer(id){
-
-  const c=
-    customers.find(x=>x.id===id);
-
-  if(!c)return;
-
-  const customerAccounts=
-    accounts.filter(a=>a.customer===id);
-
-  $("modalTitle").textContent=
-    c.name;
-
-  $("modalContent").innerHTML=`
-
-    <div class="detailGrid">
-
-      <div class="detail">
-        <div class="detailLabel">Customer ID</div>
-        <div class="detailValue">${c.id}</div>
-      </div>
-
-      <div class="detail">
-        <div class="detailLabel">Status</div>
-        <div class="detailValue">${c.status}</div>
-      </div>
-
-      <div class="detail">
-        <div class="detailLabel">Email</div>
-        <div class="detailValue">${escapeHtml(c.email)}</div>
-      </div>
-
-      <div class="detail">
-        <div class="detailLabel">Account number</div>
-        <div class="detailValue">${c.account}</div>
-      </div>
-
-    </div>
-
-    <h3 style="margin-top:22px">
-      Currency accounts
-    </h3>
-
-    ${
-      customerAccounts.length
-      ?customerAccounts.map(a=>`
-
-        <div class="detail"
-             style="margin-top:8px">
-
-          <div class="detailLabel">
-            ${a.currency}
-          </div>
-
-          <div class="detailValue">
-            ${formatMoney(a.balance,a.currency)}
-          </div>
-
-        </div>
-
-      `).join("")
-      :`<div class="empty">No accounts.</div>`
-    }
-
-  `;
-
-  openModal();
-
-}
-
-
 function accountPage(){
 
   $("pageContent").innerHTML=`
@@ -1209,13 +1333,10 @@ function accountPage(){
     <div class="pageHead">
 
       <div>
-
         <h1>Accounts</h1>
-
         <div class="muted">
-          Currency account overview
+          Customer currency accounts
         </div>
-
       </div>
 
     </div>
@@ -1229,7 +1350,6 @@ function accountPage(){
 
           <tr>
             <th>Customer</th>
-            <th>Account</th>
             <th>Currency</th>
             <th>Balance</th>
             <th>Status</th>
@@ -1245,11 +1365,7 @@ function accountPage(){
               <tr>
 
                 <td>
-                  ${c?escapeHtml(c.name):"Unknown"}
-                </td>
-
-                <td>
-                  ${c?c.account:"—"}
+                  ${c?escapeHtml(c.name):"Customer"}
                 </td>
 
                 <td>
@@ -1257,11 +1373,11 @@ function accountPage(){
                 </td>
 
                 <td>
-                  ${formatMoney(a.balance,a.currency)}
+                  ${money(a.balance,a.currency)}
                 </td>
 
                 <td>
-                  <span class="status active">
+                  <span class="status Approved">
                     Active
                   </span>
                 </td>
@@ -1285,18 +1401,17 @@ function accountPage(){
 
 function transactionPage(){
 
+  loadData();
+
   $("pageContent").innerHTML=`
 
     <div class="pageHead">
 
       <div>
-
         <h1>Transactions</h1>
-
         <div class="muted">
-          Account activity
+          Transaction history
         </div>
-
       </div>
 
     </div>
@@ -1304,161 +1419,65 @@ function transactionPage(){
 
     <div class="card">
 
-      <div class="searchRow">
+      <div class="tableWrap">
 
-        <input id="transactionSearch"
-               placeholder="Search reference, type or currency"
-               oninput="filterTransactions()">
+        <table>
 
-      </div>
+          <tr>
+            <th>Reference</th>
+            <th>Customer</th>
+            <th>Recipient</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
 
-      <div id="transactionTable">
-        ${transactionRows()}
-      </div>
+          ${transactions.length
+            ?transactions.map(t=>`
 
-    </div>
+              <tr>
 
-  `;
+                <td>
+                  ${t.id}
+                </td>
 
-}
+                <td>
+                  ${escapeHtml(t.customerName||"Customer")}
+                </td>
 
+                <td>
+                  ${escapeHtml(t.recipientName||"—")}
+                </td>
 
-function filterTransactions(){
+                <td>
+                  ${money(t.amount,t.currency)}
+                </td>
 
-  const q=
-    $("transactionSearch").value
-      .toLowerCase()
-      .trim();
+                <td>
+                  <span class="status ${t.status}">
+                    ${t.status}
+                  </span>
+                </td>
 
-  const filtered=
-    transactions.filter(t=>
-      t.reference.toLowerCase().includes(q)||
-      t.type.toLowerCase().includes(q)||
-      t.currency.toLowerCase().includes(q)
-    );
+                <td>
+                  ${new Date(t.createdAt).toLocaleString()}
+                </td>
 
-  $("transactionTable").innerHTML=
-    transactionRows(null,filtered);
+              </tr>
 
-}
+            `).join("")
+            :`
+              <tr>
+                <td colspan="6">
+                  No transactions yet.
+                </td>
+              </tr>
+            `
+          }
 
-
-function transactionRows(limit=null,list=transactions){
-
-  let data=list;
-
-  if(limit)
-    data=list.slice(0,limit);
-
-  if(!data.length)
-    return `<div class="empty">No transactions found.</div>`;
-
-  return `
-
-    <div class="tableWrap">
-
-      <table>
-
-        <tr>
-          <th>Reference</th>
-          <th>Customer</th>
-          <th>Type</th>
-          <th>Currency</th>
-          <th>Amount</th>
-          <th>Status</th>
-          <th>Date</th>
-        </tr>
-
-        ${data.map(t=>{
-
-          const c=
-            customers.find(x=>x.id===t.customer);
-
-          const statusClass=
-            t.status.toLowerCase();
-
-          return `
-
-            <tr>
-
-              <td>
-                <strong>${t.reference}</strong>
-              </td>
-
-              <td>
-                ${c?escapeHtml(c.name):"Unknown"}
-              </td>
-
-              <td>
-                ${t.type}
-              </td>
-
-              <td>
-                ${t.currency}
-              </td>
-
-              <td>
-                ${formatMoney(t.amount,t.currency)}
-              </td>
-
-              <td>
-                <span class="status ${statusClass}">
-                  ${t.status}
-                </span>
-              </td>
-
-              <td>
-                ${t.date.toLocaleString()}
-              </td>
-
-            </tr>
-
-          `;
-
-        }).join("")}
-
-      </table>
-
-    </div>
-
-  `;
-
-}
-
-
-function requestPage(){
-
-  const pending=
-    transactions.filter(
-      t=>t.status==="Pending"
-    );
-
-  $("pageContent").innerHTML=`
-
-    <div class="pageHead">
-
-      <div>
-
-        <h1>Requests</h1>
-
-        <div class="muted">
-          Items requiring review
-        </div>
+        </table>
 
       </div>
-
-    </div>
-
-
-    <div class="card">
-
-      ${
-        pending.length
-        ?transactionRows(null,pending)
-        :`<div class="empty">
-            There are no pending requests.
-          </div>`
-      }
 
     </div>
 
@@ -1474,13 +1493,10 @@ function activityPage(){
     <div class="pageHead">
 
       <div>
-
         <h1>Activity</h1>
-
         <div class="muted">
           Administration activity
         </div>
-
       </div>
 
     </div>
@@ -1488,7 +1504,30 @@ function activityPage(){
 
     <div class="card">
 
-      ${activityRows(true)}
+      ${
+        activities.length
+        ?activities.map(a=>`
+
+          <div style="padding:13px 0;
+                      border-bottom:1px solid #edf0f3">
+
+            <strong>
+              ${escapeHtml(a.title)}
+            </strong>
+
+            <div class="small muted">
+              ${escapeHtml(a.time)}
+            </div>
+
+          </div>
+
+        `).join("")
+        :`
+          <div class="empty">
+            No activity yet.
+          </div>
+        `
+      }
 
     </div>
 
@@ -1497,32 +1536,22 @@ function activityPage(){
 }
 
 
-function activityRows(all=false){
+function recentActivity(){
 
-  const list=
-    all?activities:activities.slice(0,5);
+  if(!activities.length)
+    return `<div class="empty">No recent activity.</div>`;
 
-  if(!list.length)
-    return `<div class="empty">No activity.</div>`;
+  return activities.slice(0,5).map(a=>`
 
-  return list.map(a=>`
+    <div style="padding:12px 0;
+                border-bottom:1px solid #edf0f3">
 
-    <div class="activity">
+      <strong>
+        ${escapeHtml(a.title)}
+      </strong>
 
-      <div class="activityIcon">
-        •
-      </div>
-
-      <div class="activityText">
-
-        <div class="activityTitle">
-          ${escapeHtml(a.title)}
-        </div>
-
-        <div class="activityTime">
-          ${escapeHtml(a.time)}
-        </div>
-
+      <div class="small muted">
+        ${escapeHtml(a.time)}
       </div>
 
     </div>
@@ -1532,7 +1561,7 @@ function activityRows(all=false){
 }
 
 
-function formatMoney(value,currency){
+function money(value,currency){
 
   const symbols={
     USD:"$",
@@ -1544,13 +1573,9 @@ function formatMoney(value,currency){
     AUD:"A$",
     CHF:"CHF ",
     JPY:"¥",
-    SGD:"S$",
     AED:"د.إ ",
-    HKD:"HK$",
-    NZD:"NZ$",
-    SEK:"kr ",
-    NOK:"kr ",
-    DKK:"kr "
+    SGD:"S$",
+    NZD:"NZ$"
   };
 
   return (symbols[currency]||"")+
@@ -1586,6 +1611,29 @@ function closeModal(){
   $("modal").classList.add("hidden");
 
 }
+
+
+/*
+  Refresh the approval queue automatically.
+*/
+
+setInterval(()=>{
+
+  if(!$("adminApp").classList.contains("hidden")){
+
+    const active=
+      document.querySelector(".navBtn.active");
+
+    if(active &&
+       active.textContent.includes("Approval")){
+
+      requestPage();
+
+    }
+
+  }
+
+},3000);
 
 </script>
 
