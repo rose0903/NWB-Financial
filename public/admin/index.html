@@ -1,0 +1,1593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NWB Financial — Administration</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --navy:#0b1f36;
+  --blue:#1261a0;
+  --blue2:#1677c8;
+  --bg:#f4f7fb;
+  --card:#fff;
+  --text:#142033;
+  --muted:#6d7b8d;
+  --border:#e2e8ef;
+  --green:#16803c;
+  --orange:#b56a00;
+  --red:#b42318;
+  --shadow:0 7px 25px rgba(11,31,54,.07)
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif
+}
+
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+.hidden{display:none!important}
+
+.top{
+  height:68px;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 26px;
+  position:sticky;
+  top:0;
+  z-index:20
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:20px;
+  font-weight:850;
+  color:var(--navy)
+}
+
+.logo{
+  width:35px;
+  height:35px;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue);
+  color:#fff;
+  font-weight:900
+}
+
+.adminBadge{
+  font-size:10px;
+  padding:5px 8px;
+  border-radius:20px;
+  background:#eaf1f7;
+  color:var(--blue);
+  font-weight:800;
+  margin-left:5px
+}
+
+.topRight{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--muted);
+  font-size:13px
+}
+
+.avatar{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#dcecf8;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:850
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  min-height:calc(100vh - 68px)
+}
+
+.sidebar{
+  background:var(--navy);
+  color:#fff;
+  padding:20px 12px
+}
+
+.sideTitle{
+  font-size:11px;
+  text-transform:uppercase;
+  color:#91a4b8;
+  padding:12px 12px 8px;
+  letter-spacing:.7px
+}
+
+.navBtn{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#c9d5e1;
+  text-align:left;
+  padding:12px;
+  border-radius:9px;
+  margin-bottom:3px;
+  font-weight:700
+}
+
+.navBtn:hover,
+.navBtn.active{
+  background:#163c60;
+  color:#fff
+}
+
+.main{
+  padding:27px;
+  max-width:1400px;
+  width:100%
+}
+
+.pageHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:22px
+}
+
+.pageHead h1{
+  margin:0 0 4px
+}
+
+.muted{color:var(--muted)}
+.small{font-size:12px}
+
+.btn{
+  border:0;
+  border-radius:9px;
+  padding:11px 15px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:800
+}
+
+.btn.alt{
+  background:#eaf1f7;
+  color:var(--blue)
+}
+
+.btn.danger{
+  background:var(--red)
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px
+}
+
+.stat{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:19px;
+  box-shadow:var(--shadow)
+}
+
+.statLabel{
+  font-size:12px;
+  color:var(--muted)
+}
+
+.statValue{
+  font-size:26px;
+  font-weight:900;
+  margin-top:8px
+}
+
+.statSub{
+  font-size:11px;
+  color:var(--green);
+  margin-top:5px
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  margin-top:17px
+}
+
+.cardHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px
+}
+
+.cardHead h2{
+  margin:0
+}
+
+.searchRow{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px
+}
+
+input,select{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid #ccd6e0;
+  border-radius:9px;
+  background:#fff;
+  outline:none
+}
+
+input:focus,select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(18,97,160,.09)
+}
+
+table{
+  width:100%;
+  border-collapse:collapse
+}
+
+th,td{
+  text-align:left;
+  padding:13px 10px;
+  border-bottom:1px solid #edf0f3;
+  font-size:13px
+}
+
+th{
+  font-size:11px;
+  color:#647386;
+  text-transform:uppercase;
+  letter-spacing:.3px
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:850
+}
+
+.status.active{
+  background:#eaf7ed;
+  color:var(--green)
+}
+
+.status.pending{
+  background:#fff4df;
+  color:var(--orange)
+}
+
+.status.completed{
+  background:#eaf7ed;
+  color:var(--green)
+}
+
+.status.failed{
+  background:#fff0f0;
+  color:var(--red)
+}
+
+.actionBtn{
+  border:0;
+  background:#eaf1f7;
+  color:var(--blue);
+  padding:7px 9px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:800
+}
+
+.empty{
+  text-align:center;
+  padding:35px;
+  color:var(--muted)
+}
+
+.activity{
+  display:flex;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid #edf0f3
+}
+
+.activity:last-child{
+  border-bottom:0
+}
+
+.activityIcon{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#eaf1f7;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:850
+}
+
+.activityText{
+  flex:1
+}
+
+.activityTitle{
+  font-weight:750;
+  font-size:13px
+}
+
+.activityTime{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:3px
+}
+
+.notice{
+  padding:12px 14px;
+  border-radius:9px;
+  background:#eef5ff;
+  color:#24527b;
+  margin-bottom:15px;
+  font-size:13px
+}
+
+.login{
+  max-width:430px;
+  margin:80px auto
+}
+
+.login .card{
+  margin-top:0
+}
+
+.login h1{
+  margin-bottom:6px
+}
+
+label{
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  margin:13px 0 5px
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(5,18,31,.48);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:50
+}
+
+.modalBox{
+  width:min(560px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:17px;
+  padding:22px
+}
+
+.detailGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.detail{
+  background:#f7f9fc;
+  border-radius:10px;
+  padding:13px
+}
+
+.detailLabel{
+  font-size:10px;
+  color:var(--muted);
+  text-transform:uppercase
+}
+
+.detailValue{
+  margin-top:5px;
+  font-weight:800;
+  font-size:14px
+}
+
+.footer{
+  text-align:center;
+  padding:25px;
+  color:#7b8796;
+  font-size:11px
+}
+
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .layout{
+    grid-template-columns:190px 1fr
+  }
+}
+
+@media(max-width:700px){
+  .top{
+    padding:0 14px
+  }
+
+  .topRight span{
+    display:none
+  }
+
+  .layout{
+    display:block
+  }
+
+  .sidebar{
+    display:flex;
+    overflow:auto;
+    padding:8px
+  }
+
+  .sideTitle{
+    display:none
+  }
+
+  .navBtn{
+    width:auto;
+    white-space:nowrap;
+    margin:0 3px
+  }
+
+  .main{
+    padding:16px 12px
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr
+  }
+
+  .pageHead{
+    align-items:flex-start
+  }
+
+  .tableWrap{
+    overflow:auto
+  }
+
+  table{
+    min-width:700px
+  }
+
+  .detailGrid{
+    grid-template-columns:1fr
+  }
+}
+
+@media(max-width:450px){
+  .grid{
+    grid-template-columns:1fr
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- ADMIN LOGIN -->
+
+<section id="loginPage" class="login">
+
+  <div class="card">
+
+    <div class="brand">
+      <div class="logo">N</div>
+      NWB Financial
+      <span class="adminBadge">ADMIN</span>
+    </div>
+
+    <h1 style="margin-top:25px">
+      Administration
+    </h1>
+
+    <p class="muted">
+      Sign in to the administration workspace.
+    </p>
+
+    <div id="loginMessage"></div>
+
+    <label>Administrator email</label>
+
+    <input id="adminEmail"
+           type="email"
+           placeholder="admin@example.com">
+
+    <label>Password</label>
+
+    <input id="adminPassword"
+           type="password"
+           placeholder="Password">
+
+    <button class="btn"
+            style="width:100%;margin-top:10px"
+            onclick="adminLogin()">
+      Sign in
+    </button>
+
+    <p class="small muted"
+       style="margin-top:18px">
+      Prototype administration interface.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ADMIN APP -->
+
+<section id="adminApp" class="hidden">
+
+<header class="top">
+
+  <div class="brand">
+
+    <div class="logo">N</div>
+
+    NWB Financial
+
+    <span class="adminBadge">
+      ADMIN
+    </span>
+
+  </div>
+
+  <div class="topRight">
+
+    <span>
+      Administrator
+    </span>
+
+    <div class="avatar">
+      A
+    </div>
+
+    <button class="btn danger"
+            onclick="adminLogout()">
+      Sign out
+    </button>
+
+  </div>
+
+</header>
+
+
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="sideTitle">
+      Administration
+    </div>
+
+    <button class="navBtn active"
+            onclick="showPage('overview',this)">
+      Overview
+    </button>
+
+    <button class="navBtn"
+            onclick="showPage('customers',this)">
+      Customers
+    </button>
+
+    <button class="navBtn"
+            onclick="showPage('accounts',this)">
+      Accounts
+    </button>
+
+    <button class="navBtn"
+            onclick="showPage('transactions',this)">
+      Transactions
+    </button>
+
+    <button class="navBtn"
+            onclick="showPage('requests',this)">
+      Requests
+    </button>
+
+    <button class="navBtn"
+            onclick="showPage('activity',this)">
+      Activity
+    </button>
+
+  </aside>
+
+
+  <main class="main">
+
+    <div id="pageContent"></div>
+
+    <div class="footer">
+      NWB Financial administration interface
+    </div>
+
+  </main>
+
+</div>
+
+</section>
+
+
+<!-- MODAL -->
+
+<div id="modal" class="modal hidden">
+
+  <div class="modalBox">
+
+    <div class="cardHead">
+
+      <h2 id="modalTitle">
+        Details
+      </h2>
+
+      <button class="btn alt"
+              onclick="closeModal()">
+        Close
+      </button>
+
+    </div>
+
+    <div id="modalContent"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const $=id=>document.getElementById(id);
+
+let adminLoggedIn=false;
+
+let customers=[
+  {
+    id:"CUS-1001",
+    name:"Alex Morgan",
+    email:"alex@example.com",
+    account:"1029384756",
+    status:"Active"
+  },
+  {
+    id:"CUS-1002",
+    name:"Jordan Williams",
+    email:"jordan@example.com",
+    account:"5647382910",
+    status:"Active"
+  },
+  {
+    id:"CUS-1003",
+    name:"Taylor Smith",
+    email:"taylor@example.com",
+    account:"9182736450",
+    status:"Active"
+  }
+];
+
+let accounts=[
+  {
+    customer:"CUS-1001",
+    currency:"USD",
+    balance:12500
+  },
+  {
+    customer:"CUS-1001",
+    currency:"GBP",
+    balance:4200
+  },
+  {
+    customer:"CUS-1002",
+    currency:"EUR",
+    balance:3100
+  },
+  {
+    customer:"CUS-1003",
+    currency:"ZAR",
+    balance:18000
+  }
+];
+
+let transactions=[
+  {
+    reference:"NWB-7A91",
+    customer:"CUS-1001",
+    type:"Transfer",
+    currency:"USD",
+    amount:450,
+    status:"Completed",
+    date:new Date()
+  },
+  {
+    reference:"NWB-4C28",
+    customer:"CUS-1002",
+    type:"Exchange",
+    currency:"EUR",
+    amount:220,
+    status:"Completed",
+    date:new Date(Date.now()-3600000)
+  },
+  {
+    reference:"NWB-9D44",
+    customer:"CUS-1003",
+    type:"Withdrawal",
+    currency:"ZAR",
+    amount:800,
+    status:"Pending",
+    date:new Date(Date.now()-7200000)
+  }
+];
+
+let activities=[
+  {
+    title:"Administration workspace opened",
+    time:"Just now"
+  },
+  {
+    title:"Recent account activity synchronized",
+    time:"Today"
+  }
+];
+
+
+function adminLogin(){
+
+  const email=
+    $("adminEmail").value.trim();
+
+  const password=
+    $("adminPassword").value;
+
+  if(!email||!password){
+
+    $("loginMessage").innerHTML=
+      `<div class="notice">
+        Enter the administrator email and password.
+      </div>`;
+
+    return;
+  }
+
+  adminLoggedIn=true;
+
+  $("loginPage").classList.add("hidden");
+
+  $("adminApp").classList.remove("hidden");
+
+  showPage(
+    "overview",
+    document.querySelector(".navBtn")
+  );
+
+}
+
+
+function adminLogout(){
+
+  adminLoggedIn=false;
+
+  $("adminApp").classList.add("hidden");
+
+  $("loginPage").classList.remove("hidden");
+
+  $("adminEmail").value="";
+
+  $("adminPassword").value="";
+
+}
+
+
+function showPage(page,button){
+
+  document
+    .querySelectorAll(".navBtn")
+    .forEach(x=>x.classList.remove("active"));
+
+  if(button)
+    button.classList.add("active");
+
+  if(page==="overview")
+    overview();
+
+  if(page==="customers")
+    customerPage();
+
+  if(page==="accounts")
+    accountPage();
+
+  if(page==="transactions")
+    transactionPage();
+
+  if(page==="requests")
+    requestPage();
+
+  if(page==="activity")
+    activityPage();
+
+}
+
+
+function overview(){
+
+  const pending=
+    transactions.filter(
+      t=>t.status==="Pending"
+    ).length;
+
+  const totalBalance=
+    accounts.reduce(
+      (sum,a)=>sum+a.balance,
+      0
+    );
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Overview</h1>
+
+        <div class="muted">
+          Administration workspace
+        </div>
+
+      </div>
+
+      <button class="btn"
+              onclick="refreshOverview()">
+        Refresh
+      </button>
+
+    </div>
+
+
+    <div class="grid">
+
+      <div class="stat">
+
+        <div class="statLabel">
+          Customers
+        </div>
+
+        <div class="statValue">
+          ${customers.length}
+        </div>
+
+        <div class="statSub">
+          Active profiles
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="statLabel">
+          Currency accounts
+        </div>
+
+        <div class="statValue">
+          ${accounts.length}
+        </div>
+
+        <div class="statSub">
+          Across supported currencies
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="statLabel">
+          Account balances
+        </div>
+
+        <div class="statValue">
+          ${totalBalance.toLocaleString(undefined,{
+            maximumFractionDigits:2
+          })}
+        </div>
+
+        <div class="statSub">
+          Combined displayed value
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="statLabel">
+          Pending requests
+        </div>
+
+        <div class="statValue">
+          ${pending}
+        </div>
+
+        <div class="statSub">
+          Require review
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="cardHead">
+
+        <h2>Recent transactions</h2>
+
+        <button class="btn alt"
+                onclick="showPage('transactions')">
+          View all
+        </button>
+
+      </div>
+
+      ${transactionRows(5)}
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="cardHead">
+
+        <h2>Recent activity</h2>
+
+        <button class="btn alt"
+                onclick="showPage('activity')">
+          View activity
+        </button>
+
+      </div>
+
+      ${activityRows()}
+
+    </div>
+
+  `;
+
+}
+
+
+function refreshOverview(){
+
+  activities.unshift({
+    title:"Dashboard refreshed",
+    time:"Just now"
+  });
+
+  overview();
+
+}
+
+
+function customerPage(){
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Customers</h1>
+
+        <div class="muted">
+          Customer profiles
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="searchRow">
+
+        <input id="customerSearch"
+               placeholder="Search by name, email or account number"
+               oninput="filterCustomers()">
+
+      </div>
+
+      <div id="customerTable">
+        ${customerRows(customers)}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function filterCustomers(){
+
+  const q=
+    $("customerSearch").value
+      .toLowerCase()
+      .trim();
+
+  const filtered=
+    customers.filter(c=>
+      c.name.toLowerCase().includes(q)||
+      c.email.toLowerCase().includes(q)||
+      c.account.includes(q)
+    );
+
+  $("customerTable").innerHTML=
+    customerRows(filtered);
+
+}
+
+
+function customerRows(list){
+
+  if(!list.length)
+    return `<div class="empty">No customers found.</div>`;
+
+  return `
+
+    <div class="tableWrap">
+
+      <table>
+
+        <tr>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Account</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+
+        ${list.map(c=>`
+
+          <tr>
+
+            <td>
+              <strong>${escapeHtml(c.name)}</strong>
+              <div class="small muted">
+                ${c.id}
+              </div>
+            </td>
+
+            <td>
+              ${escapeHtml(c.email)}
+            </td>
+
+            <td>
+              ${c.account}
+            </td>
+
+            <td>
+              <span class="status active">
+                ${c.status}
+              </span>
+            </td>
+
+            <td>
+              <button class="actionBtn"
+                onclick="viewCustomer('${c.id}')">
+                View
+              </button>
+            </td>
+
+          </tr>
+
+        `).join("")}
+
+      </table>
+
+    </div>
+
+  `;
+
+}
+
+
+function viewCustomer(id){
+
+  const c=
+    customers.find(x=>x.id===id);
+
+  if(!c)return;
+
+  const customerAccounts=
+    accounts.filter(a=>a.customer===id);
+
+  $("modalTitle").textContent=
+    c.name;
+
+  $("modalContent").innerHTML=`
+
+    <div class="detailGrid">
+
+      <div class="detail">
+        <div class="detailLabel">Customer ID</div>
+        <div class="detailValue">${c.id}</div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">Status</div>
+        <div class="detailValue">${c.status}</div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">Email</div>
+        <div class="detailValue">${escapeHtml(c.email)}</div>
+      </div>
+
+      <div class="detail">
+        <div class="detailLabel">Account number</div>
+        <div class="detailValue">${c.account}</div>
+      </div>
+
+    </div>
+
+    <h3 style="margin-top:22px">
+      Currency accounts
+    </h3>
+
+    ${
+      customerAccounts.length
+      ?customerAccounts.map(a=>`
+
+        <div class="detail"
+             style="margin-top:8px">
+
+          <div class="detailLabel">
+            ${a.currency}
+          </div>
+
+          <div class="detailValue">
+            ${formatMoney(a.balance,a.currency)}
+          </div>
+
+        </div>
+
+      `).join("")
+      :`<div class="empty">No accounts.</div>`
+    }
+
+  `;
+
+  openModal();
+
+}
+
+
+function accountPage(){
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Accounts</h1>
+
+        <div class="muted">
+          Currency account overview
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="tableWrap">
+
+        <table>
+
+          <tr>
+            <th>Customer</th>
+            <th>Account</th>
+            <th>Currency</th>
+            <th>Balance</th>
+            <th>Status</th>
+          </tr>
+
+          ${accounts.map(a=>{
+
+            const c=
+              customers.find(x=>x.id===a.customer);
+
+            return `
+
+              <tr>
+
+                <td>
+                  ${c?escapeHtml(c.name):"Unknown"}
+                </td>
+
+                <td>
+                  ${c?c.account:"—"}
+                </td>
+
+                <td>
+                  <strong>${a.currency}</strong>
+                </td>
+
+                <td>
+                  ${formatMoney(a.balance,a.currency)}
+                </td>
+
+                <td>
+                  <span class="status active">
+                    Active
+                  </span>
+                </td>
+
+              </tr>
+
+            `;
+
+          }).join("")}
+
+        </table>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function transactionPage(){
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Transactions</h1>
+
+        <div class="muted">
+          Account activity
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="searchRow">
+
+        <input id="transactionSearch"
+               placeholder="Search reference, type or currency"
+               oninput="filterTransactions()">
+
+      </div>
+
+      <div id="transactionTable">
+        ${transactionRows()}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function filterTransactions(){
+
+  const q=
+    $("transactionSearch").value
+      .toLowerCase()
+      .trim();
+
+  const filtered=
+    transactions.filter(t=>
+      t.reference.toLowerCase().includes(q)||
+      t.type.toLowerCase().includes(q)||
+      t.currency.toLowerCase().includes(q)
+    );
+
+  $("transactionTable").innerHTML=
+    transactionRows(null,filtered);
+
+}
+
+
+function transactionRows(limit=null,list=transactions){
+
+  let data=list;
+
+  if(limit)
+    data=list.slice(0,limit);
+
+  if(!data.length)
+    return `<div class="empty">No transactions found.</div>`;
+
+  return `
+
+    <div class="tableWrap">
+
+      <table>
+
+        <tr>
+          <th>Reference</th>
+          <th>Customer</th>
+          <th>Type</th>
+          <th>Currency</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+
+        ${data.map(t=>{
+
+          const c=
+            customers.find(x=>x.id===t.customer);
+
+          const statusClass=
+            t.status.toLowerCase();
+
+          return `
+
+            <tr>
+
+              <td>
+                <strong>${t.reference}</strong>
+              </td>
+
+              <td>
+                ${c?escapeHtml(c.name):"Unknown"}
+              </td>
+
+              <td>
+                ${t.type}
+              </td>
+
+              <td>
+                ${t.currency}
+              </td>
+
+              <td>
+                ${formatMoney(t.amount,t.currency)}
+              </td>
+
+              <td>
+                <span class="status ${statusClass}">
+                  ${t.status}
+                </span>
+              </td>
+
+              <td>
+                ${t.date.toLocaleString()}
+              </td>
+
+            </tr>
+
+          `;
+
+        }).join("")}
+
+      </table>
+
+    </div>
+
+  `;
+
+}
+
+
+function requestPage(){
+
+  const pending=
+    transactions.filter(
+      t=>t.status==="Pending"
+    );
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Requests</h1>
+
+        <div class="muted">
+          Items requiring review
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      ${
+        pending.length
+        ?transactionRows(null,pending)
+        :`<div class="empty">
+            There are no pending requests.
+          </div>`
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+function activityPage(){
+
+  $("pageContent").innerHTML=`
+
+    <div class="pageHead">
+
+      <div>
+
+        <h1>Activity</h1>
+
+        <div class="muted">
+          Administration activity
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      ${activityRows(true)}
+
+    </div>
+
+  `;
+
+}
+
+
+function activityRows(all=false){
+
+  const list=
+    all?activities:activities.slice(0,5);
+
+  if(!list.length)
+    return `<div class="empty">No activity.</div>`;
+
+  return list.map(a=>`
+
+    <div class="activity">
+
+      <div class="activityIcon">
+        •
+      </div>
+
+      <div class="activityText">
+
+        <div class="activityTitle">
+          ${escapeHtml(a.title)}
+        </div>
+
+        <div class="activityTime">
+          ${escapeHtml(a.time)}
+        </div>
+
+      </div>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+function formatMoney(value,currency){
+
+  const symbols={
+    USD:"$",
+    GBP:"£",
+    EUR:"€",
+    NGN:"₦",
+    ZAR:"R",
+    CAD:"C$",
+    AUD:"A$",
+    CHF:"CHF ",
+    JPY:"¥",
+    SGD:"S$",
+    AED:"د.إ ",
+    HKD:"HK$",
+    NZD:"NZ$",
+    SEK:"kr ",
+    NOK:"kr ",
+    DKK:"kr "
+  };
+
+  return (symbols[currency]||"")+
+    Number(value).toLocaleString(undefined,{
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    });
+
+}
+
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function openModal(){
+
+  $("modal").classList.remove("hidden");
+
+}
+
+
+function closeModal(){
+
+  $("modal").classList.add("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
