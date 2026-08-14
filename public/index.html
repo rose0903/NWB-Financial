@@ -7,88 +7,78 @@
 
 <style>
 *{box-sizing:border-box}
-
 :root{
   --navy:#0b1f36;
   --blue:#1261a0;
-  --blue2:#1677c8;
+  --blue2:#1976d2;
   --bg:#f4f7fb;
   --card:#fff;
-  --text:#142033;
-  --muted:#6c7a8c;
-  --border:#e3e9f0;
+  --text:#172033;
+  --muted:#68778d;
+  --border:#e3e9ef;
   --green:#16803c;
+  --orange:#a86400;
   --red:#b42318;
   --shadow:0 8px 30px rgba(11,31,54,.08)
 }
-
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif
 }
-
 button,input,select{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
 
 .top{
-  height:68px;
   background:#fff;
   border-bottom:1px solid var(--border);
+  padding:15px 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 28px;
   position:sticky;
   top:0;
-  z-index:20
+  z-index:10
 }
-
 .brand{
-  font-size:21px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:20px;
   font-weight:850;
   color:var(--navy)
 }
-
-.brandMark{
-  display:inline-flex;
-  width:34px;
-  height:34px;
+.logo{
+  width:36px;
+  height:36px;
   border-radius:9px;
+  background:linear-gradient(135deg,#102a43,#1261a0);
+  color:white;
+  display:flex;
   align-items:center;
   justify-content:center;
-  background:var(--blue);
-  color:white;
-  margin-right:8px;
   font-weight:900
 }
-
-.topRight{
-  font-size:13px;
-  color:var(--muted)
-}
+.topRight{font-size:13px;color:var(--muted)}
 
 .wrap{
   max-width:1180px;
   margin:auto;
-  padding:28px 20px
+  padding:25px 18px
 }
-
 .card{
-  background:var(--card);
+  background:white;
   border:1px solid var(--border);
   border-radius:18px;
   padding:22px;
   box-shadow:var(--shadow)
 }
-
 .form{
   max-width:450px;
   margin:55px auto
 }
-
 h1,h2,h3{margin-top:0}
 .muted{color:var(--muted)}
 .small{font-size:12px}
@@ -96,41 +86,37 @@ h1,h2,h3{margin-top:0}
 .tabs{
   display:flex;
   gap:7px;
-  margin:20px 0;
-  flex-wrap:wrap
+  flex-wrap:wrap;
+  margin:20px 0
 }
-
 .tabs button{
   border:0;
+  background:#eaf0f6;
+  color:#31516e;
   padding:10px 14px;
   border-radius:9px;
-  background:#edf2f7;
-  color:#35506b;
   font-weight:750
 }
-
 .tabs button.active{
   background:var(--blue);
-  color:#fff
+  color:white
 }
 
 label{
   display:block;
-  font-size:13px;
-  font-weight:750;
+  font-size:12px;
+  font-weight:800;
   margin-top:12px
 }
-
 input,select{
   width:100%;
-  padding:13px;
+  padding:12px;
   border:1px solid #ccd6e0;
   border-radius:10px;
-  margin:6px 0 12px;
-  background:#fff;
+  margin:6px 0 11px;
+  background:white;
   outline:none
 }
-
 input:focus,select:focus{
   border-color:var(--blue);
   box-shadow:0 0 0 3px rgba(18,97,160,.1)
@@ -139,14 +125,15 @@ input:focus,select:focus{
 .btn{
   border:0;
   border-radius:10px;
-  padding:12px 17px;
+  padding:11px 16px;
   background:var(--blue);
   color:white;
   font-weight:800
 }
-
-.btn:hover{filter:brightness(1.06)}
-.btn.alt{background:#eaf1f7;color:var(--blue)}
+.btn.alt{
+  background:#eaf1f7;
+  color:var(--blue)
+}
 .btn.danger{background:var(--red)}
 .btn.green{background:var(--green)}
 
@@ -157,378 +144,174 @@ input:focus,select:focus{
   gap:15px;
   margin-bottom:20px
 }
-
 .profile{
   display:flex;
   align-items:center;
-  gap:12px
+  gap:11px
 }
-
 .avatar{
-  width:46px;
-  height:46px;
+  width:43px;
+  height:43px;
   border-radius:50%;
   background:#dcecf8;
   color:var(--blue);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900;
-  font-size:18px
+  font-weight:900
 }
 
-.accountMeta{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap
-}
-
-.accountMeta span{
-  font-size:12px;
-  color:var(--muted)
-}
-
-.accountArea{
-  display:grid;
-  grid-template-columns:1fr 300px;
-  gap:18px;
-  margin-bottom:18px
-}
-
-.mainBalance{
-  color:white;
+.balance{
   background:linear-gradient(135deg,#0b1f36,#1261a0);
+  color:white;
   border-radius:20px;
-  padding:27px;
-  min-height:230px;
-  position:relative;
-  overflow:hidden
+  padding:25px;
+  box-shadow:var(--shadow);
+  margin-bottom:17px
 }
-
-.mainBalance:after{
-  content:"";
-  position:absolute;
-  width:230px;
-  height:230px;
-  border-radius:50%;
-  right:-80px;
-  top:-90px;
-  background:rgba(255,255,255,.06)
-}
-
-.accountLabel{
-  font-size:12px;
-  opacity:.75;
-  letter-spacing:.5px
-}
-
-.currencyTitle{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:17px;
-  font-weight:800;
-  margin-top:10px
-}
-
-.flag{
-  font-size:24px
-}
-
-.bigBalance{
-  font-size:39px;
-  font-weight:900;
-  margin:20px 0 5px
-}
-
-.balanceSub{
-  font-size:12px;
-  opacity:.75
-}
-
-.accountPanel{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:20px
-}
-
-.accountPanel h3{
-  margin-bottom:15px
-}
-
-.detail{
-  padding:11px 0;
-  border-bottom:1px solid #edf1f5
-}
-
-.detail:last-child{border-bottom:0}
-
-.detailLabel{
-  font-size:11px;
-  color:var(--muted);
-  text-transform:uppercase
-}
-
-.detailValue{
-  font-size:14px;
-  font-weight:750;
-  margin-top:3px
-}
-
-.switchRow{
-  display:flex;
-  gap:10px;
-  align-items:end;
-  flex-wrap:wrap
-}
-
-.switchBox{
-  flex:1;
-  min-width:220px
-}
-
-.switchBox label{
-  margin-top:0
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px
-}
-
-.stat{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:18px
-}
-
-.statLabel{
-  color:var(--muted);
+.balanceLabel{
+  opacity:.8;
   font-size:12px
 }
-
-.statValue{
-  font-size:21px;
-  font-weight:850;
-  margin-top:8px
+.balanceAmount{
+  font-size:34px;
+  font-weight:900;
+  margin:8px 0
+}
+.accountNumber{
+  opacity:.8;
+  font-size:12px
 }
 
 .actions{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:11px
+  gap:10px;
+  margin-top:18px
 }
-
 .action{
   border:1px solid var(--border);
-  background:#fff;
-  border-radius:14px;
-  padding:17px;
+  background:white;
+  border-radius:13px;
+  padding:16px;
   text-align:left;
   font-weight:800;
   color:var(--text)
 }
-
 .action:hover{
-  border-color:#b8d1e5;
+  border-color:#b7cee1;
   background:#f8fbfe
 }
-
-.actionIcon{
-  font-size:23px;
-  margin-bottom:8px
-}
-
 .action span{
   display:block;
   color:var(--muted);
-  font-size:12px;
+  font-size:11px;
   font-weight:500;
   margin-top:5px
 }
 
-.section{
-  margin-top:18px
-}
-
 .notice{
-  padding:13px 15px;
+  padding:12px 14px;
   border-radius:10px;
   margin:12px 0;
-  background:#eef7ee;
+  background:#eef5ff;
+  color:#24527b;
+  font-size:13px
+}
+.notice.success{
+  background:#eaf7ed;
   color:#176b35
 }
-
-.error{
+.notice.warning{
+  background:#fff4df;
+  color:#8b5700
+}
+.notice.error{
   background:#fff0f0;
   color:#a51d2d
 }
 
-.info{
-  background:#eef5ff;
-  color:#24527b
-}
-
-.formGrid{
+.grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px
 }
 
-.review{
-  background:#f7f9fc;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
-  margin-top:18px
-}
-
-.reviewRow{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:12px 0;
-  border-bottom:1px solid #e4e9ef;
-  font-size:14px
-}
-
-.reviewRow:last-child{border-bottom:0}
-
-.reviewRow span:first-child{
-  color:var(--muted)
-}
-
-.reviewRow strong{
-  text-align:right
-}
-
-.recipient{
+.currencyCard{
   background:white;
-  border:1px solid #dce5ee;
-  border-radius:14px;
-  padding:16px;
-  margin:15px 0
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:18px
 }
-
-.recipientName{
-  font-size:17px;
-  font-weight:850
-}
-
-.accountNumber{
-  font-family:monospace;
-  letter-spacing:1px;
+.currencyName{
   color:var(--muted);
-  margin-top:4px
+  font-size:12px
 }
-
-.successBox{
-  text-align:center;
-  padding:25px
-}
-
-.successCircle{
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  background:#e5f6e9;
-  color:var(--green);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:29px;
-  font-weight:900;
-  margin:0 auto 15px
-}
-
-.tableWrap{
-  overflow:auto
+.currencyAmount{
+  font-size:23px;
+  font-weight:850;
+  margin-top:7px
 }
 
 table{
   width:100%;
   border-collapse:collapse
 }
-
 th,td{
   text-align:left;
-  padding:13px;
+  padding:12px 9px;
   border-bottom:1px solid #edf0f3;
   font-size:13px
 }
-
 th{
-  color:#526176;
-  font-size:11px;
+  color:#647386;
+  font-size:10px;
   text-transform:uppercase
 }
 
 .status{
   display:inline-block;
-  padding:4px 8px;
+  padding:5px 9px;
   border-radius:20px;
-  font-size:11px;
-  font-weight:800;
+  font-size:10px;
+  font-weight:850
+}
+.status.Pending{
+  background:#fff4df;
+  color:#9a6100
+}
+.status.Approved{
   background:#eaf7ed;
   color:#176b35
+}
+.status.Rejected{
+  background:#fff0f0;
+  color:#a51d2d
+}
+
+.recipient{
+  background:#f7f9fc;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  margin:12px 0
 }
 
 .footer{
   text-align:center;
-  padding:30px 15px;
-  color:#7a8797;
+  padding:30px 10px;
+  color:#7b8795;
   font-size:11px
 }
 
-@media(max-width:850px){
-  .accountArea{
-    grid-template-columns:1fr
-  }
-
-  .actions{
-    grid-template-columns:1fr 1fr
-  }
-
-  .grid{
-    grid-template-columns:1fr
-  }
-}
-
-@media(max-width:600px){
-  .top{
-    padding:0 15px
-  }
-
-  .topRight{
-    display:none
-  }
-
-  .wrap{
-    padding:17px 12px
-  }
-
-  .form{
-    margin:25px auto
-  }
-
-  .headerRow{
-    align-items:flex-start
-  }
-
-  .bigBalance{
-    font-size:31px
-  }
-
-  .formGrid{
-    grid-template-columns:1fr
-  }
-
-  .actions{
-    grid-template-columns:1fr
-  }
+@media(max-width:700px){
+  .topRight{display:none}
+  .wrap{padding:15px 12px}
+  .form{margin:25px auto}
+  .actions{grid-template-columns:1fr 1fr}
+  .balanceAmount{font-size:29px}
+  .tableWrap{overflow:auto}
+  table{min-width:700px}
 }
 </style>
 </head>
@@ -536,18 +319,12 @@ th{
 <body>
 
 <header class="top">
-
   <div class="brand">
-    <span class="brandMark">N</span>
+    <div class="logo">N</div>
     NWB Financial
   </div>
-
-  <div class="topRight">
-    Personal financial workspace
-  </div>
-
+  <div class="topRight">Personal banking</div>
 </header>
-
 
 <main class="wrap">
 
@@ -558,11 +335,10 @@ th{
     <h1 id="authTitle">Welcome back</h1>
 
     <p class="muted">
-      Sign in to your NWB Financial workspace.
+      Sign in to your account.
     </p>
 
     <div class="tabs">
-
       <button id="loginTab"
               class="active"
               onclick="showAuth('login')">
@@ -573,7 +349,6 @@ th{
               onclick="showAuth('register')">
         Create account
       </button>
-
     </div>
 
     <div id="msg"></div>
@@ -597,7 +372,6 @@ th{
       </button>
 
     </div>
-
 
     <div id="registerBox" class="hidden">
 
@@ -634,27 +408,18 @@ th{
 
     <div class="profile">
 
-      <div class="avatar" id="avatar">N</div>
+      <div class="avatar" id="avatar">
+        N
+      </div>
 
       <div>
-
-        <h1 id="welcome"
-            style="margin-bottom:3px">
+        <h2 id="welcome" style="margin:0">
           Welcome
-        </h1>
+        </h2>
 
-        <div class="accountMeta">
-
-          <span>
-            Customer account
-          </span>
-
-          <span>
-            Status: <strong>Active</strong>
-          </span>
-
+        <div class="muted small">
+          Personal account
         </div>
-
       </div>
 
     </div>
@@ -695,9 +460,8 @@ th{
 
   <div id="content"></div>
 
-
   <div class="footer">
-    NWB Financial interface
+    NWB Financial
   </div>
 
 </section>
@@ -711,48 +475,42 @@ const $=id=>document.getElementById(id);
 
 let user=null;
 
-let accounts=[
-  {
-    currency:"USD",
-    name:"US Dollar",
-    symbol:"$",
-    flag:"🇺🇸",
-    balance:12500
-  }
+let wallets=[
+  {currency:"USD",balance:12500},
+  {currency:"GBP",balance:4200},
+  {currency:"EUR",balance:3100},
+  {currency:"NGN",balance:2500000},
+  {currency:"ZAR",balance:18000},
+  {currency:"CAD",balance:1900},
+  {currency:"AUD",balance:2200},
+  {currency:"CHF",balance:1500},
+  {currency:"JPY",balance:180000},
+  {currency:"AED",balance:6000},
+  {currency:"SGD",balance:1800},
+  {currency:"NZD",balance:2100}
 ];
-
-let activeCurrency="USD";
 
 let transactions=[];
 
-
-const currencyList=[
-  ["USD","US Dollar","$","🇺🇸"],
-  ["GBP","British Pound","£","🇬🇧"],
-  ["EUR","Euro","€","🇪🇺"],
-  ["NGN","Nigerian Naira","₦","🇳🇬"],
-  ["ZAR","South African Rand","R","🇿🇦"],
-  ["CAD","Canadian Dollar","C$","🇨🇦"],
-  ["AUD","Australian Dollar","A$","🇦🇺"],
-  ["CHF","Swiss Franc","CHF","🇨🇭"],
-  ["JPY","Japanese Yen","¥","🇯🇵"],
-  ["SGD","Singapore Dollar","S$","🇸🇬"],
-  ["AED","UAE Dirham","د.إ","🇦🇪"],
-  ["HKD","Hong Kong Dollar","HK$","🇭🇰"],
-  ["NZD","New Zealand Dollar","NZ$","🇳🇿"],
-  ["SEK","Swedish Krona","kr","🇸🇪"],
-  ["NOK","Norwegian Krone","kr","🇳🇴"],
-  ["DKK","Danish Krone","kr","🇩🇰"]
-];
+const currencySymbols={
+  USD:"$",
+  GBP:"£",
+  EUR:"€",
+  NGN:"₦",
+  ZAR:"R",
+  CAD:"C$",
+  AUD:"A$",
+  CHF:"CHF ",
+  JPY:"¥",
+  AED:"د.إ ",
+  SGD:"S$",
+  NZD:"NZ$"
+};
 
 
 function money(value,currency){
 
-  const c=currencyList.find(x=>x[0]===currency);
-
-  const symbol=c?c[2]:"";
-
-  return symbol+
+  return (currencySymbols[currency]||"")+
     Number(value).toLocaleString(undefined,{
       minimumFractionDigits:2,
       maximumFractionDigits:2
@@ -761,17 +519,10 @@ function money(value,currency){
 }
 
 
-function accountInfo(currency){
-
-  return currencyList.find(x=>x[0]===currency);
-
-}
-
-
-function showMessage(text,error=false){
+function showMessage(text,type="info"){
 
   $("msg").innerHTML=
-    `<div class="notice ${error?"error":""}">
+    `<div class="notice ${type}">
       ${text}
     </div>`;
 
@@ -782,16 +533,20 @@ function showAuth(type){
 
   const login=type==="login";
 
-  $("loginBox").classList.toggle("hidden",!login);
+  $("loginBox")
+    .classList.toggle("hidden",!login);
 
-  $("registerBox").classList.toggle("hidden",login);
+  $("registerBox")
+    .classList.toggle("hidden",login);
 
-  $("loginTab").classList.toggle("active",login);
+  $("loginTab")
+    .classList.toggle("active",login);
 
-  $("registerTab").classList.toggle("active",!login);
+  $("registerTab")
+    .classList.toggle("active",!login);
 
   $("authTitle").textContent=
-    login?"Welcome back":"Create account";
+    login?"Welcome back":"Create your account";
 
   $("msg").innerHTML="";
 
@@ -801,14 +556,13 @@ function showAuth(type){
 function login(){
 
   const email=$("le").value.trim();
-
   const password=$("lp").value;
 
   if(!email||!password){
 
     showMessage(
       "Please enter your email and password.",
-      true
+      "error"
     );
 
     return;
@@ -817,7 +571,7 @@ function login(){
   user={
     name:email.split("@")[0],
     email:email,
-    accountNumber:createAccountNumber()
+    id:"CUS-"+Date.now()
   };
 
   openApp();
@@ -828,16 +582,14 @@ function login(){
 function register(){
 
   const name=$("rn").value.trim();
-
   const email=$("re").value.trim();
-
   const password=$("rp").value;
 
   if(!name||!email||password.length<8){
 
     showMessage(
       "Enter your name, email and a password of at least 8 characters.",
-      true
+      "error"
     );
 
     return;
@@ -846,7 +598,7 @@ function register(){
   user={
     name:name,
     email:email,
-    accountNumber:createAccountNumber()
+    id:"CUS-"+Date.now()
   };
 
   openApp();
@@ -854,22 +606,9 @@ function register(){
 }
 
 
-function createAccountNumber(){
-
-  return String(
-    Math.floor(
-      1000000000+
-      Math.random()*8999999999
-    )
-  );
-
-}
-
-
 function openApp(){
 
   $("auth").classList.add("hidden");
-
   $("app").classList.remove("hidden");
 
   $("welcome").textContent=
@@ -891,11 +630,9 @@ function logout(){
   user=null;
 
   $("app").classList.add("hidden");
-
   $("auth").classList.remove("hidden");
 
   $("le").value="";
-
   $("lp").value="";
 
   showAuth("login");
@@ -912,13 +649,9 @@ function tab(name,el){
   if(el)el.classList.add("active");
 
   if(name==="home")home();
-
   if(name==="transfer")transfer();
-
   if(name==="exchange")exchange();
-
   if(name==="withdraw")withdraw();
-
   if(name==="history")history();
 
 }
@@ -926,234 +659,88 @@ function tab(name,el){
 
 function home(){
 
-  const account=
-    accounts.find(a=>a.currency===activeCurrency);
-
-  const info=
-    accountInfo(activeCurrency);
+  const primary=wallets[0];
 
   $("content").innerHTML=`
 
-    <div class="accountArea">
+    <div class="balance">
 
-      <div class="mainBalance">
-
-        <div class="accountLabel">
-          SELECTED ACCOUNT
-        </div>
-
-        <div class="currencyTitle">
-
-          <span class="flag">
-            ${info[3]}
-          </span>
-
-          ${info[0]} — ${info[1]}
-
-        </div>
-
-        <div class="bigBalance">
-          ${money(account.balance,account.currency)}
-        </div>
-
-        <div class="balanceSub">
-          Available balance
-        </div>
-
+      <div class="balanceLabel">
+        Available balance
       </div>
 
-
-      <div class="accountPanel">
-
-        <h3>Account details</h3>
-
-        <div class="detail">
-
-          <div class="detailLabel">
-            Account number
-          </div>
-
-          <div class="detailValue">
-            ${user.accountNumber}
-          </div>
-
-        </div>
-
-        <div class="detail">
-
-          <div class="detailLabel">
-            Account currency
-          </div>
-
-          <div class="detailValue">
-            ${info[0]} — ${info[1]}
-          </div>
-
-        </div>
-
-        <div class="detail">
-
-          <div class="detailLabel">
-            Account status
-          </div>
-
-          <div class="detailValue">
-            Active
-          </div>
-
-        </div>
-
+      <div class="balanceAmount">
+        ${money(primary.balance,primary.currency)}
       </div>
 
-    </div>
-
-
-    <div class="card section">
-
-      <div class="switchRow">
-
-        <div class="switchBox">
-
-          <label>
-            Your currency accounts
-          </label>
-
-          <select id="accountSelector"
-                  onchange="switchAccount(this.value)">
-
-            ${accounts.map(a=>{
-
-              const i=accountInfo(a.currency);
-
-              return `
-                <option
-                  value="${a.currency}"
-                  ${a.currency===activeCurrency?"selected":""}>
-                  ${i[3]} ${a.currency} — ${i[1]}
-                </option>
-              `;
-
-            }).join("")}
-
-          </select>
-
-        </div>
-
-        <button class="btn"
-                onclick="addAccount()">
-          + Add currency account
-        </button>
-
+      <div class="accountNumber">
+        ${primary.currency} account
       </div>
-
-    </div>
-
-
-    <div class="grid section">
-
-      <div class="stat">
-
-        <div class="statLabel">
-          Available balance
-        </div>
-
-        <div class="statValue">
-          ${money(account.balance,account.currency)}
-        </div>
-
-      </div>
-
-      <div class="stat">
-
-        <div class="statLabel">
-          Currency
-        </div>
-
-        <div class="statValue">
-          ${account.currency}
-        </div>
-
-      </div>
-
-      <div class="stat">
-
-        <div class="statLabel">
-          Recent activity
-        </div>
-
-        <div class="statValue">
-          ${transactions.length}
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="card section">
-
-      <h2>Quick actions</h2>
-
-      <p class="muted">
-        Manage your selected currency account.
-      </p>
 
       <div class="actions">
 
         <button class="action"
                 onclick="tab('transfer')">
-
-          <div class="actionIcon">↗</div>
-
           Transfer
-
-          <span>
-            Send funds to a recipient
-          </span>
-
+          <span>Send a transfer</span>
         </button>
-
 
         <button class="action"
                 onclick="tab('exchange')">
-
-          <div class="actionIcon">⇄</div>
-
           Exchange
-
-          <span>
-            Convert currencies
-          </span>
-
+          <span>Convert currency</span>
         </button>
-
 
         <button class="action"
                 onclick="tab('withdraw')">
-
-          <div class="actionIcon">↓</div>
-
           Withdraw
-
-          <span>
-            Request a withdrawal
-          </span>
-
+          <span>Create a request</span>
         </button>
-
 
         <button class="action"
                 onclick="tab('history')">
-
-          <div class="actionIcon">☷</div>
-
-          Transactions
-
-          <span>
-            View recent activity
-          </span>
-
+          Activity
+          <span>View transactions</span>
         </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div style="display:flex;
+                  justify-content:space-between;
+                  align-items:center;
+                  gap:10px">
+
+        <div>
+          <h2>My accounts</h2>
+          <p class="muted small">
+            Your available currency accounts
+          </p>
+        </div>
+
+      </div>
+
+      <div class="grid">
+
+        ${wallets.map(w=>`
+
+          <div class="currencyCard">
+
+            <div class="currencyName">
+              ${w.currency} ACCOUNT
+            </div>
+
+            <div class="currencyAmount">
+              ${money(w.balance,w.currency)}
+            </div>
+
+          </div>
+
+        `).join("")}
 
       </div>
 
@@ -1164,72 +751,17 @@ function home(){
 }
 
 
-function switchAccount(currency){
+function currencyOptions(id){
 
-  activeCurrency=currency;
-
-  home();
-
-}
-
-
-function addAccount(){
-
-  const available=
-    currencyList.filter(c=>
-      !accounts.some(a=>a.currency===c[0])
-    );
-
-  if(!available.length){
-
-    alert("All available currency accounts have been added.");
-
-    return;
-
-  }
-
-  const selected=
-    prompt(
-      "Enter currency code to add:\n\n"+
-      available.map(c=>c[0]+" — "+c[1]).join("\n")
-    );
-
-  if(!selected)return;
-
-  const code=selected.trim().toUpperCase();
-
-  const info=
-    currencyList.find(c=>c[0]===code);
-
-  if(!info){
-
-    alert("Currency not available.");
-
-    return;
-
-  }
-
-  if(accounts.some(a=>a.currency===code)){
-
-    alert("That currency account already exists.");
-
-    return;
-
-  }
-
-  accounts.push({
-
-    currency:info[0],
-    name:info[1],
-    symbol:info[2],
-    flag:info[3],
-    balance:0
-
-  });
-
-  activeCurrency=code;
-
-  home();
+  return `
+    <select id="${id}">
+      ${wallets.map(w=>`
+        <option value="${w.currency}">
+          ${w.currency}
+        </option>
+      `).join("")}
+    </select>
+  `;
 
 }
 
@@ -1240,80 +772,48 @@ function transfer(){
 
     <div class="card">
 
-      <h2>Transfer</h2>
+      <h2>Transfer money</h2>
 
       <p class="muted">
-        Enter recipient information and review the payment before confirming.
+        Enter the recipient details below.
       </p>
 
-      <div class="formGrid">
+      <label>Recipient full name</label>
 
-        <div>
+      <input id="recipientName"
+             placeholder="Recipient full name">
 
-          <label>Recipient name</label>
+      <label>Recipient account number</label>
 
-          <input id="recipientName"
-                 placeholder="Full name">
+      <input id="recipientAccount"
+             inputmode="numeric"
+             placeholder="Account number">
 
-        </div>
-
-        <div>
-
-          <label>Account number</label>
-
-          <input id="recipientAccount"
-                 inputmode="numeric"
-                 placeholder="Account number">
-
-        </div>
-
-      </div>
-
-
-      <label>Bank</label>
+      <label>Recipient bank</label>
 
       <input id="recipientBank"
              placeholder="Bank name">
 
-
       <label>Currency</label>
 
-      <select id="transferCurrency">
-
-        ${accounts.map(a=>{
-
-          const i=accountInfo(a.currency);
-
-          return `
-            <option value="${a.currency}"
-              ${a.currency===activeCurrency?"selected":""}>
-              ${i[3]} ${i[0]} — ${i[1]}
-            </option>
-          `;
-
-        }).join("")}
-
-      </select>
-
+      ${currencyOptions("tc")}
 
       <label>Amount</label>
 
-      <input id="transferAmount"
+      <input id="ta"
              type="number"
              min="0"
              step="0.01"
              placeholder="0.00">
 
-
       <label>Payment reference</label>
 
-      <input id="transferReference"
+      <input id="td"
              placeholder="Optional reference">
 
-
       <button class="btn"
-              onclick="reviewTransfer()">
-        Review transfer
+              onclick="submitTransfer()">
+        Continue transfer
       </button>
 
       <div id="transferOutput"></div>
@@ -1325,302 +825,112 @@ function transfer(){
 }
 
 
-function reviewTransfer(){
+function submitTransfer(){
 
-  const name=
+  const recipientName=
     $("recipientName").value.trim();
 
-  const account=
+  const recipientAccount=
     $("recipientAccount").value.trim();
 
-  const bank=
+  const recipientBank=
     $("recipientBank").value.trim();
 
   const currency=
-    $("transferCurrency").value;
+    $("tc").value;
 
   const amount=
-    Number($("transferAmount").value);
+    Number($("ta").value);
 
-  const reference=
-    $("transferReference").value.trim()||
-    "Payment";
+  const referenceText=
+    $("td").value.trim();
 
+  if(
+    !recipientName||
+    !recipientAccount||
+    !recipientBank||
+    !amount||
+    amount<=0
+  ){
 
-  if(!name||!account||!bank){
-
-    $("transferOutput").innerHTML=
-      `<div class="notice error">
-        Enter the recipient name, account number and bank.
-      </div>`;
-
-    return;
-
-  }
-
-
-  if(!amount||amount<=0){
-
-    $("transferOutput").innerHTML=
-      `<div class="notice error">
-        Enter a valid amount.
-      </div>`;
+    $("transferOutput").innerHTML=`
+      <div class="notice error">
+        Please complete all recipient details and enter a valid amount.
+      </div>
+    `;
 
     return;
-
   }
 
+  const wallet=
+    wallets.find(w=>w.currency===currency);
 
-  const source=
-    accounts.find(a=>a.currency===currency);
+  if(amount>wallet.balance){
 
-
-  if(!source||amount>source.balance){
-
-    $("transferOutput").innerHTML=
-      `<div class="notice error">
+    $("transferOutput").innerHTML=`
+      <div class="notice error">
         Insufficient available balance.
-      </div>`;
+      </div>
+    `;
 
     return;
-
   }
 
+  /*
+    The amount is NOT deducted yet.
+    The transfer is placed into the shared
+    approval queue first.
+  */
+
+  const transaction={
+    id:"TX-"+Date.now(),
+    customerId:user.id,
+    customerName:user.name,
+    recipientName:recipientName,
+    recipientAccount:recipientAccount,
+    recipientBank:recipientBank,
+    currency:currency,
+    amount:amount,
+    reference:referenceText||
+      "Payment",
+    status:"Pending",
+    createdAt:new Date().toISOString()
+  };
+
+  transactions.unshift(transaction);
+
+  saveSharedTransactions();
 
   $("transferOutput").innerHTML=`
 
-    <div class="review">
+    <div class="notice warning">
 
-      <h3>Review payment</h3>
+      <strong>Transfer submitted for approval.</strong>
 
-      <div class="recipient">
+      <br><br>
 
-        <div class="recipientName">
-          ${safe(name)}
-        </div>
+      Recipient:
+      <strong>${escapeHtml(recipientName)}</strong>
 
-        <div class="accountNumber">
-          Account ${safe(account)}
-        </div>
+      <br>
 
-        <div class="small muted">
-          ${safe(bank)}
-        </div>
+      Account:
+      <strong>${escapeHtml(recipientAccount)}</strong>
 
-      </div>
+      <br>
 
+      Amount:
+      <strong>${money(amount,currency)}</strong>
 
-      <div class="reviewRow">
+      <br><br>
 
-        <span>Amount</span>
+      Reference:
+      <strong>${transaction.id}</strong>
 
-        <strong>
-          ${money(amount,currency)}
-        </strong>
+      <br><br>
 
-      </div>
-
-
-      <div class="reviewRow">
-
-        <span>Currency</span>
-
-        <strong>
-          ${currency}
-        </strong>
-
-      </div>
-
-
-      <div class="reviewRow">
-
-        <span>Reference</span>
-
-        <strong>
-          ${safe(reference)}
-        </strong>
-
-      </div>
-
-
-      <div style="margin-top:18px">
-
-        <button class="btn"
-          onclick="confirmTransfer()">
-          Confirm transfer
-        </button>
-
-        <button class="btn alt"
-          onclick="transfer()"
-          style="margin-left:7px">
-          Edit
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-function confirmTransfer(){
-
-  const name=
-    $("recipientName").value.trim();
-
-  const account=
-    $("recipientAccount").value.trim();
-
-  const bank=
-    $("recipientBank").value.trim();
-
-  const currency=
-    $("transferCurrency").value;
-
-  const amount=
-    Number($("transferAmount").value);
-
-  const referenceText=
-    $("transferReference").value.trim()||
-    "Payment";
-
-
-  const source=
-    accounts.find(a=>a.currency===currency);
-
-
-  if(!source||amount>source.balance){
-
-    $("transferOutput").innerHTML=
-      `<div class="notice error">
-        Insufficient available balance.
-      </div>`;
-
-    return;
-
-  }
-
-
-  source.balance-=amount;
-
-
-  const reference=
-    "NWB-"+
-    Date.now().toString(36).toUpperCase();
-
-
-  transactions.unshift({
-
-    date:new Date(),
-
-    type:"Transfer",
-
-    currency:currency,
-
-    amount:-amount,
-
-    status:"Completed",
-
-    reference:reference,
-
-    description:referenceText,
-
-    recipient:name,
-
-    account:account,
-
-    bank:bank
-
-  });
-
-
-  $("content").innerHTML=`
-
-    <div class="card">
-
-      <div class="successBox">
-
-        <div class="successCircle">
-          ✓
-        </div>
-
-        <h2>Transfer completed</h2>
-
-        <p class="muted">
-          Payment successfully recorded.
-        </p>
-
-
-        <div class="recipient"
-             style="text-align:left">
-
-          <div class="recipientName">
-            ${safe(name)}
-          </div>
-
-          <div class="accountNumber">
-            Account ${safe(account)}
-          </div>
-
-          <div class="small muted">
-            ${safe(bank)}
-          </div>
-
-        </div>
-
-
-        <div class="review">
-
-          <div class="reviewRow">
-
-            <span>Amount</span>
-
-            <strong>
-              ${money(amount,currency)}
-            </strong>
-
-          </div>
-
-
-          <div class="reviewRow">
-
-            <span>Reference</span>
-
-            <strong>
-              ${reference}
-            </strong>
-
-          </div>
-
-
-          <div class="reviewRow">
-
-            <span>Status</span>
-
-            <strong>
-              Completed
-            </strong>
-
-          </div>
-
-        </div>
-
-
-        <button class="btn"
-                onclick="tab('home')">
-          Dashboard
-        </button>
-
-
-        <button class="btn alt"
-                onclick="tab('history')"
-                style="margin-left:7px">
-          Transactions
-        </button>
-
-      </div>
+      The transaction is currently
+      <strong>Pending</strong>.
 
     </div>
 
@@ -1635,62 +945,30 @@ function exchange(){
 
     <div class="card">
 
-      <h2>Exchange</h2>
+      <h2>Currency exchange</h2>
 
       <p class="muted">
-        Convert between your currency accounts.
+        Convert between available currency accounts.
       </p>
 
-
       <label>From</label>
-
-      <select id="exchangeFrom">
-
-        ${accounts.map(a=>{
-
-          const i=accountInfo(a.currency);
-
-          return `
-            <option value="${a.currency}"
-              ${a.currency===activeCurrency?"selected":""}>
-              ${i[3]} ${i[0]} — ${i[1]}
-            </option>
-          `;
-
-        }).join("")}
-
-      </select>
-
+      ${currencyOptions("ef")}
 
       <label>To</label>
-
-      <select id="exchangeTo">
-
-        ${currencyList.map(c=>`
-
-          <option value="${c[0]}">
-            ${c[3]} ${c[0]} — ${c[1]}
-          </option>
-
-        `).join("")}
-
-      </select>
-
+      ${currencyOptions("et")}
 
       <label>Amount</label>
 
-      <input id="exchangeAmount"
+      <input id="ea"
              type="number"
              min="0"
              step="0.01"
              placeholder="0.00">
 
-
       <button class="btn"
               onclick="doExchange()">
-        Exchange
+        Exchange currency
       </button>
-
 
       <div id="exchangeOutput"></div>
 
@@ -1703,27 +981,19 @@ function exchange(){
 
 function doExchange(){
 
-  const from=
-    $("exchangeFrom").value;
-
-  const to=
-    $("exchangeTo").value;
-
-  const amount=
-    Number($("exchangeAmount").value);
-
+  const from=$("ef").value;
+  const to=$("et").value;
+  const amount=Number($("ea").value);
 
   if(from===to){
 
     $("exchangeOutput").innerHTML=
       `<div class="notice error">
-        Choose two different currencies.
+        Choose different currencies.
       </div>`;
 
     return;
-
   }
-
 
   if(!amount||amount<=0){
 
@@ -1733,46 +1003,23 @@ function doExchange(){
       </div>`;
 
     return;
-
   }
 
-
   const source=
-    accounts.find(a=>a.currency===from);
+    wallets.find(w=>w.currency===from);
 
+  const destination=
+    wallets.find(w=>w.currency===to);
 
-  if(!source||amount>source.balance){
+  if(amount>source.balance){
 
     $("exchangeOutput").innerHTML=
       `<div class="notice error">
-        Insufficient available balance.
+        Insufficient balance.
       </div>`;
 
     return;
-
   }
-
-
-  let destination=
-    accounts.find(a=>a.currency===to);
-
-
-  if(!destination){
-
-    const info=accountInfo(to);
-
-    destination={
-      currency:info[0],
-      name:info[1],
-      symbol:info[2],
-      flag:info[3],
-      balance:0
-    };
-
-    accounts.push(destination);
-
-  }
-
 
   const rates={
     USD:1,
@@ -1782,61 +1029,44 @@ function doExchange(){
     ZAR:.055,
     CAD:.73,
     AUD:.66,
-    CHF:1.16,
-    JPY:.0067,
-    SGD:.74,
+    CHF:1.13,
+    JPY:.0068,
     AED:.272,
-    HKD:.128,
-    NZD:.60,
-    SEK:.095,
-    NOK:.094,
-    DKK:.146
+    SGD:.74,
+    NZD:.60
   };
-
 
   const received=
     amount*rates[from]/rates[to];
 
-
   source.balance-=amount;
-
   destination.balance+=received;
 
-
-  const reference=
-    "NWB-"+Date.now().toString(36).toUpperCase();
-
+  saveWallets();
 
   transactions.unshift({
-
-    date:new Date(),
-
-    type:"Exchange",
-
+    id:"TX-"+Date.now(),
+    customerId:user.id,
+    customerName:user.name,
+    recipientName:"Currency conversion",
+    recipientAccount:"—",
+    recipientBank:"NWB Financial",
     currency:from,
-
-    amount:-amount,
-
-    status:"Completed",
-
-    reference:reference,
-
-    description:`Exchange ${from} to ${to}`
-
+    amount:amount,
+    reference:"Currency exchange",
+    status:"Approved",
+    createdAt:new Date().toISOString()
   });
 
-
-  activeCurrency=to;
-
+  saveSharedTransactions();
 
   $("exchangeOutput").innerHTML=
-    `<div class="notice">
-      Exchange completed.<br>
-      Received <strong>${money(received,to)}</strong>.
+    `<div class="notice success">
+      Exchange completed. Received
+      <strong>${money(received,to)}</strong>.
     </div>`;
 
-
-  setTimeout(home,1500);
+  setTimeout(home,1200);
 
 }
 
@@ -1847,53 +1077,32 @@ function withdraw(){
 
     <div class="card">
 
-      <h2>Withdraw</h2>
+      <h2>Withdrawal request</h2>
 
       <p class="muted">
-        Create a withdrawal request from the selected account.
+        Create a withdrawal request.
       </p>
 
-
       <label>Currency</label>
-
-      <select id="withdrawCurrency">
-
-        ${accounts.map(a=>{
-
-          const i=accountInfo(a.currency);
-
-          return `
-            <option value="${a.currency}"
-              ${a.currency===activeCurrency?"selected":""}>
-              ${i[3]} ${i[0]} — ${i[1]}
-            </option>
-          `;
-
-        }).join("")}
-
-      </select>
-
+      ${currencyOptions("wc")}
 
       <label>Amount</label>
 
-      <input id="withdrawAmount"
+      <input id="wa"
              type="number"
              min="0"
              step="0.01"
              placeholder="0.00">
 
-
       <label>Note</label>
 
-      <input id="withdrawNote"
-             placeholder="Optional note">
-
+      <input id="wd"
+             placeholder="Withdrawal note">
 
       <button class="btn"
-              onclick="doWithdraw()">
-        Request withdrawal
+              onclick="submitWithdrawal()">
+        Submit request
       </button>
-
 
       <div id="withdrawOutput"></div>
 
@@ -1904,22 +1113,11 @@ function withdraw(){
 }
 
 
-function doWithdraw(){
+function submitWithdrawal(){
 
-  const currency=
-    $("withdrawCurrency").value;
-
-  const amount=
-    Number($("withdrawAmount").value);
-
-  const note=
-    $("withdrawNote").value.trim()||
-    "Withdrawal request";
-
-
-  const account=
-    accounts.find(a=>a.currency===currency);
-
+  const currency=$("wc").value;
+  const amount=Number($("wa").value);
+  const note=$("wd").value.trim()||"Withdrawal request";
 
   if(!amount||amount<=0){
 
@@ -1929,95 +1127,99 @@ function doWithdraw(){
       </div>`;
 
     return;
-
   }
 
+  const wallet=
+    wallets.find(w=>w.currency===currency);
 
-  if(!account||amount>account.balance){
+  if(amount>wallet.balance){
 
     $("withdrawOutput").innerHTML=
       `<div class="notice error">
-        Insufficient available balance.
+        Insufficient balance.
       </div>`;
 
     return;
-
   }
 
-
-  account.balance-=amount;
-
-
-  const reference=
-    "NWB-"+Date.now().toString(36).toUpperCase();
-
-
-  transactions.unshift({
-
-    date:new Date(),
-
-    type:"Withdrawal",
-
+  const transaction={
+    id:"TX-"+Date.now(),
+    customerId:user.id,
+    customerName:user.name,
+    recipientName:"Withdrawal",
+    recipientAccount:"—",
+    recipientBank:"—",
     currency:currency,
-
-    amount:-amount,
-
+    amount:amount,
+    reference:note,
     status:"Pending",
+    createdAt:new Date().toISOString()
+  };
 
-    reference:reference,
+  transactions.unshift(transaction);
 
-    description:note
-
-  });
-
+  saveSharedTransactions();
 
   $("withdrawOutput").innerHTML=
-    `<div class="notice">
-      Withdrawal request recorded.<br>
-      Reference: <strong>${reference}</strong>
+    `<div class="notice warning">
+      Withdrawal request submitted.
+      <br><br>
+      Reference:
+      <strong>${transaction.id}</strong>
+      <br>
+      Status:
+      <strong>Pending</strong>
     </div>`;
-
-
-  setTimeout(home,1500);
 
 }
 
 
 function history(){
 
+  /*
+    Pull latest status changes from
+    the shared approval queue.
+  */
+
+  loadSharedTransactions();
+
+  const mine=
+    transactions.filter(
+      t=>!user||t.customerId===user.id
+    );
+
   let rows="";
 
-
-  transactions.forEach(t=>{
+  mine.forEach(t=>{
 
     rows+=`
 
       <tr>
 
         <td>
-          ${t.date.toLocaleString()}
+          ${new Date(t.createdAt).toLocaleString()}
         </td>
 
         <td>
-          ${safe(t.type)}
+          ${escapeHtml(t.recipientName)}
         </td>
 
         <td>
-          ${safe(t.currency)}
+          ${escapeHtml(t.recipientAccount)}
         </td>
 
         <td>
-          ${money(Math.abs(t.amount),t.currency)}
+          ${money(t.amount,t.currency)}
         </td>
 
         <td>
-          <span class="status">
-            ${safe(t.status)}
+          <span class="status ${t.status}">
+            ${t.status}
           </span>
         </td>
 
         <td>
-          ${safe(t.reference)}
+          ${t.id}
         </td>
 
       </tr>
@@ -2026,23 +1228,17 @@ function history(){
 
   });
 
-
   if(!rows){
 
     rows=`
-
       <tr>
-
         <td colspan="6">
           No transactions yet.
         </td>
-
       </tr>
-
     `;
 
   }
-
 
   $("content").innerHTML=`
 
@@ -2051,23 +1247,20 @@ function history(){
       <h2>Transactions</h2>
 
       <p class="muted">
-        Recent account activity.
+        Your recent transaction activity.
       </p>
-
 
       <div class="tableWrap">
 
         <table>
 
           <tr>
-
             <th>Date</th>
-            <th>Type</th>
-            <th>Currency</th>
+            <th>Recipient</th>
+            <th>Account</th>
             <th>Amount</th>
             <th>Status</th>
             <th>Reference</th>
-
           </tr>
 
           ${rows}
@@ -2083,7 +1276,46 @@ function history(){
 }
 
 
-function safe(value){
+function saveSharedTransactions(){
+
+  localStorage.setItem(
+    "nwb_transactions",
+    JSON.stringify(transactions)
+  );
+
+}
+
+
+function loadSharedTransactions(){
+
+  try{
+
+    const saved=
+      localStorage.getItem("nwb_transactions");
+
+    if(saved)
+      transactions=JSON.parse(saved);
+
+  }catch(e){
+
+    transactions=[];
+
+  }
+
+}
+
+
+function saveWallets(){
+
+  localStorage.setItem(
+    "nwb_wallets",
+    JSON.stringify(wallets)
+  );
+
+}
+
+
+function escapeHtml(value){
 
   return String(value)
     .replace(/&/g,"&amp;")
@@ -2093,6 +1325,40 @@ function safe(value){
     .replace(/'/g,"&#039;");
 
 }
+
+
+/*
+  Check for admin decisions periodically.
+*/
+
+setInterval(()=>{
+
+  if(user){
+
+    loadSharedTransactions();
+
+    if(
+      !$("app").classList.contains("hidden")
+    ){
+
+      const active=
+        document.querySelector(
+          "#app .tabs button.active"
+        );
+
+      if(active &&
+         active.textContent.includes("Transactions")){
+
+        history();
+
+      }
+
+    }
+
+  }
+
+},3000);
+
 
 </script>
 
