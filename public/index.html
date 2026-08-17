@@ -1118,30 +1118,47 @@ function showAuth(type){
 }
 
 
-function login(){
+async function login(){
 
-  const email =
-    $("loginEmail").value.trim();
-
-  const password =
-    $("loginPassword").value;
+  const email = $("loginEmail").value.trim();
+  const password = $("loginPassword").value;
 
   if(!email || !password){
-
-    message(
-      "Please enter your email and password.",
-      true
-    );
-
+    message("Please enter your email and password.", true);
     return;
   }
 
-  user = {
-    name:email.split("@")[0],
-    email
-  };
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
 
-  openApp();
+    const data = await response.json();
+
+    if(!response.ok){
+      message(
+        data.error || "Incorrect email or password.",
+        true
+      );
+      return;
+    }
+
+    user = data.user;
+    openApp();
+
+  } catch(error) {
+    message(
+      "Unable to connect to the server.",
+      true
+    );
+  }
 }
 
 
